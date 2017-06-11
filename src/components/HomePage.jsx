@@ -1,8 +1,9 @@
 import React from 'react';
-import GoogleLogin from 'react-google-login';
-import action from '../Actions/actions-auth.js';
-import store from '../store/authStore.js';
 import { Link } from 'react-router';
+
+import GoogleLogin from 'react-google-login';
+import action from '../Actions/actions-auth';
+import store from '../store/authStore';
 
 class Login extends React.Component {
   constructor(props) {
