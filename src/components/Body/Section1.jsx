@@ -35,7 +35,7 @@ export default class Section1 extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-              <SelectNewsSource getSource={newState => this.newSource(newState)} />
+              <SelectNewsSource className="newsSource"getSource={newState => this.newSource(newState)} />
             </div>
             <div className="col-md-4">
               <SelectSortOrder getSort={newState => this.newSort(newState)} />
