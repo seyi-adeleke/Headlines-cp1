@@ -34,8 +34,5 @@ export default class SelectSortOrder extends React.Component {
   }
 }
 SelectSortOrder.propTypes = {
-  getSort: PropTypes.oneOfType([
-    React.PropTypes.arrayOf(React.PropTypes.node),
-    React.PropTypes.node,
-  ]).isRequired,
+  getSort: PropTypes.any.isRequired,
 };

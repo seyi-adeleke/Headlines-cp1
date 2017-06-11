@@ -54,8 +54,5 @@ export default class SelectNewsSource extends React.Component {
   }
 }
 SelectNewsSource.propTypes = {
-  getSource: PropTypes.oneOfType([
-    React.PropTypes.arrayOf(React.PropTypes.node),
-    React.PropTypes.node,
-  ]).isRequired,
+  getSource: PropTypes.any.isRequired,
 };
