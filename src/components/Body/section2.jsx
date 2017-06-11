@@ -1,5 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ShareButtons, generateShareIcon } from 'react-share';
+
+const {
+  FacebookShareButton,
+  GooglePlusShareButton,
+  TwitterShareButton,
+} = ShareButtons;
+const TwitterIcon = generateShareIcon('twitter');
+const FacebookIcon = generateShareIcon('facebook');
+const GoogleIcon = generateShareIcon('google');
 
 export default class Section2 extends React.Component {
   constructor(props) {
@@ -30,6 +40,7 @@ export default class Section2 extends React.Component {
                       <th>Title</th>
                       <th>Description</th>
                       <th>Go to Article</th>
+                      <th>Be Social, Share</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -40,7 +51,7 @@ export default class Section2 extends React.Component {
                           <img
                             key={[0]}
                             alt="Not Available"
-                            style={{ width: 305 }}
+                            style={{ width: 205 }}
                             src={(sourceData[key].urlToImage)}
                           />
                         </td>
@@ -55,6 +66,29 @@ export default class Section2 extends React.Component {
                           >
                           Go To Article
                         </a>
+                        </td>
+                        <td>
+                          <TwitterShareButton
+                            url={(sourceData[key].url)}
+                            title="I found this interesting"
+                            className=""
+                          >
+                            <TwitterIcon size={32} round />
+                          </TwitterShareButton>
+                          <FacebookShareButton
+                            url={(sourceData[key].url)}
+                            title="I found this interesting"
+                            className=""
+                          >
+                            <FacebookIcon size={32} round />
+                          </FacebookShareButton>
+                          <GooglePlusShareButton
+                            url={(sourceData[key].url)}
+                            title="I found this interesting"
+                            className=""
+                          >
+                            <GoogleIcon size={32} round />
+                          </GooglePlusShareButton>
                         </td>
                       </tr>),
                     )
