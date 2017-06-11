@@ -1,4 +1,3 @@
 node_modules
 .idea/
 coverage/
-__tests__/__snapshots__
