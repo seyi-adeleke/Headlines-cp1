@@ -1,9 +1,4 @@
-# Deployable React + Webpack 2 starter kit
-
-Most notable libraries:
-- React 15
-- Webpack 2
-- React-hot-loader 3
+# HEADLINES
 
 Running on development mode:
 ```
