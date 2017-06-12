@@ -10,13 +10,14 @@ describe('Body', () => {
   it('should have have a section', () => {
     expect(wrapper.find('Section1')).to.have.length(1);
   });
-    it('should have have line breaks', () => {
+  it('should have have line breaks', () => {
     expect(wrapper.find('br')).to.have.length(2);
   });
 });
+
 describe('Body', () => {
-    it('renders without crashing', () => {
-        const div = document.createElement('div');
-        ReactDOM.render(<Body />, div);
-    });
+  it('renders without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<Body />, div);
+  });
 });

@@ -3,12 +3,8 @@ import { Route, Router, IndexRoute, browserHistory } from 'react-router';
 import Layout from './components/Layout.jsx';
 import Body from './components/Body.jsx';
 import HomePage from './components/HomePage.jsx';
+import NotFound from './components/NotFound.jsx';
 import store from '../src/store/authStore.js';
-
-import './styles/app.scss';
-
-const NotFound = () => (
-  <h1>404.. This page is not found!</h1>);
 
 export default class Root extends React.Component {
   constructor(props) {

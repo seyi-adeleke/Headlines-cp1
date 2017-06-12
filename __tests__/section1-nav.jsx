@@ -14,12 +14,3 @@ describe('Section', () => {
     expect(rendered.toJSON()).toMatchSnapshot();
   });
 });
-
-
-describe('Nav state', () => {
-  const wrapper = mount(<Nav />);
-  it('should have user state to be false on load', () => {
-  expect(wrapper.state().user).toBe(false);
-   })
-   
-});

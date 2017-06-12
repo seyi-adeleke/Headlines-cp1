@@ -106,7 +106,7 @@ export default class Section2 extends React.Component {
 
 Section2.propTypes = {
   data: PropTypes.oneOfType([
-    React.PropTypes.arrayOf(React.PropTypes.node),
+    React.PropTypes.obj,
     React.PropTypes.node,
   ]).isRequired,
 };

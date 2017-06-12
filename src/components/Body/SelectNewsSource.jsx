@@ -2,7 +2,6 @@ import React from 'react';
 import request from 'superagent';
 import PropTypes from 'prop-types';
 
-
 export default class SelectNewsSource extends React.Component {
   constructor(props) {
     super(props);
@@ -54,5 +53,5 @@ export default class SelectNewsSource extends React.Component {
   }
 }
 SelectNewsSource.propTypes = {
-  getSource: PropTypes.any.isRequired,
+  getSource: PropTypes.func.isRequired,
 };
