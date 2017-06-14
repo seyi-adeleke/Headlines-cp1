@@ -23,6 +23,9 @@ const ArticleStore = ObjectAssign({}, EventEmitter.prototype, {
   getList() {
     return store;
   },
+  listInfo() {
+    return store.list;
+  },
 });
 
 AppDispatcher.register((payload) => {

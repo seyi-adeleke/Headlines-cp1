@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import sinon from 'sinon';
 
 
-import SelectNewsSource from '../src/components/Body/SelectNewsSource';
+import SelectNewsSource from '../../src/components/Body/SelectNewsSource';
 
 describe('SelectNewsSource state', () => {
   const wrapper = shallow(<SelectNewsSource getSource={newState => this.newSource(newState)} />);

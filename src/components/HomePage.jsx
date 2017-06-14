@@ -5,7 +5,7 @@ import GoogleLogin from 'react-google-login';
 import action from '../Actions/actions-auth';
 import store from '../store/authStore';
 
-class Login extends React.Component {
+export default class Homepage extends React.Component {
   constructor(props) {
     super(props);
     this.state = { credentials: {
@@ -77,5 +77,3 @@ class Login extends React.Component {
     );
   }
 }
-
-export default Login;

@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import ReactDOM from 'react-dom';
 
 import { expect } from 'chai';
-import NotFound from '../src/components/NotFound.jsx';
+import NotFound from '../../src/components/NotFound.jsx';
 
 describe('NotFound', () => {
   const wrapper = mount(<NotFound />);

@@ -28,7 +28,7 @@ export default class Section2 extends React.Component {
             <div className="panel panel-primary panel-table">
               <div className="panel-heading">
                 <h3 className="panel-title text-center">
-                  The Latest Headlines from {sourceName}
+                  The Latest Headlines from {sourceName.replace(/-/g, ' ')}
                 </h3>
               </div>
               <div className="panel-body">

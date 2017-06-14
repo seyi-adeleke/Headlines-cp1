@@ -3,7 +3,7 @@ import Constants from '../constants/constants';
 
 export default{
   logout(info) {
-    AppDispatcher.handleAction({
+    AppDispatcher.handleServerAction({
       actionType: Constants.LOGOUT,
       info,
     });
