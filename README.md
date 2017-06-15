@@ -1,5 +1,6 @@
 # HEADLINES
 [![Build Status](https://travis-ci.org/seyi-adeleke/Headlines-cp1.svg?branch=master)](https://travis-ci.org/seyi-adeleke/Headlines-cp1) [![Code Climate](https://codeclimate.com/github/cloudfoundry/membrane.png)](https://codeclimate.com/github/seyi-adeleke/Headlines-cp1)
+[![Test Coverage](https://codeclimate.com/github/seyi-adeleke/Headlines-cp1/badges/coverage.svg)](https://codeclimate.com/github/seyi-adeleke/Headlines-cp1/coverage)
 
 Running on development mode:
 ```
