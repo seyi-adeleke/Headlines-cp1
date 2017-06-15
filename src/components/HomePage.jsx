@@ -45,7 +45,7 @@ export default class Homepage extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="welcome">
         <form>
           <div className="text-center">
             <div className="text-center">

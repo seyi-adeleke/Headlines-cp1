@@ -26,7 +26,6 @@ export default class SelectSortOrder extends React.Component {
           >
             <option>Top</option>
             <option>Latest</option>
-            <option>Popular</option>
           </select>
         </div>
       </div>

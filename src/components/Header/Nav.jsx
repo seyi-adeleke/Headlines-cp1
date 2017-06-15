@@ -16,7 +16,7 @@ export default class Nav extends React.Component {
     store.addChangeListener(this.onChange);
   }
   onChange() {
-    this.setState({ user: true });
+    this.setState({ user: true, info: store.getUser() });
   }
   componentDidUnMount() {
     store.removeChangeListener(this.onChange);
@@ -34,12 +34,22 @@ export default class Nav extends React.Component {
             </div>
             <div className="collapse navbar-collapse" id="navbar">
               <form>
+                {
+                  this.state.user ? <img
+                    alt="not available"
+                    src={this.state.info.user.info.imageUrl}
+                    style={{ marginTop: 8, marginLeft: 800, width: 30, borderRadius: 40 }}
+                  />
+                  : null
+                }
                 {this.state.user ?
                   <ul className="nav navbar-nav navbar-right">
+                    <li><a className="navbar-brand">
+                      {this.state.info.user.info.givenName}</a></li>
                     <li onClick={this.logUserOut}><a className="navbar-brand" >
                       <b>Log Out</b></a></li>
                   </ul>
-                 : null}
+                    : null}
               </form>
             </div>
           </div>
