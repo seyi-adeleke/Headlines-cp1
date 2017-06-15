@@ -1,37 +1,20 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { expect } from 'chai';
-import GoogleLogin from 'react-google-login';
-import Login from '../../src/components/HomePage.jsx';
+import renderer from 'react-test-renderer';
 
-test('Login', () => {
-  const wrapper = shallow(<Login />);
-  it('should have have a form', () => {
+import GoogleLogin from 'react-google-login';
+import Homepage from '../../src/components/HomePage.jsx';
+
+describe('Login', () => {
+  const wrapper = shallow(<Homepage />);
+  test('should have have a form', () => {
     expect(wrapper.find('form')).to.have.length(1);
   });
-});
-
-test('Login', () => {
-  it('should have correct state', () => {
-    const wrapper = shallow(<Login />);
-    expect(wrapper.state().info).to.equal('');
-    expect(wrapper.state().showButton).to.equal(false);
-
-    expect((wrapper.state().credentials)).to.deep.equal({
-      email: '',
-      name: '',
-    });
+  test('should have have a div', () => {
+    expect(wrapper.find('div')).to.have.length(3);
   });
-
-   it('should have render button on state change ', () => {
-     const wrapper = shallow(<Login />);
-     const showButton = (wrapper.state().info);
-     if (showButton) {
-      expect(wrapper.find('button')).to.have.length(1);
-     }
-     if (showButton) {
-       expect(wrapper.find(GoogleLogin)).to.have.length(1);
-     }
+  test('should have have a h2', () => {
+    expect(wrapper.find('h2')).to.have.length(1);
   });
 });
-

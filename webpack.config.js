@@ -2,7 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
-const port =  3000;
+
+const port = 3000;
 
 const outputPath = path.join(__dirname, 'public');
 

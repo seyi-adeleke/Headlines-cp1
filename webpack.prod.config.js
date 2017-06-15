@@ -3,7 +3,6 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const outputPath = path.join(__dirname, 'public');
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: 'public/index.html',
   filename: 'index.html',
@@ -13,11 +12,10 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
   entry: './src/index.jsx',
-  
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js',
-    publicPath: '/public/'
+    publicPath: '/public/',
   },
 
 
@@ -26,14 +24,14 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({
       minimize: true,
       compress: {
-        warnings: false
-      }
+        warnings: false,
+      },
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('production')
-      }
-    })
+        'NODE_ENV': JSON.stringify('production'),
+      },
+    }),
   ],
 
   module: {

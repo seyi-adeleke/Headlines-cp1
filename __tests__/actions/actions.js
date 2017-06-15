@@ -27,14 +27,14 @@ describe('Receive info Actions', () => {
 
 describe('Auth Actions', () => {
   test('gets a user', () => {
-   expect(authActions.getUser());
+    expect(authActions.getUser());
   });
 });
 
 
 describe('Logiut Actions', () => {
   it('gets a user', () => {
-   expect(logoutActions.logout());
+    expect(logoutActions.logout());
   });
 });
 

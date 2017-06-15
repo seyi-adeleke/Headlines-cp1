@@ -21,9 +21,7 @@ export default class SelectNewsSource extends React.Component {
       return response.body;
     });
   }
-  componentWillUnmount() {
-    this.serverRequest.abort();
-  }
+
 
   handleChange(event) {
     this.setState({
