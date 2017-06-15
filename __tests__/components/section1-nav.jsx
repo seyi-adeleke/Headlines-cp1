@@ -1,6 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
+
 import section1 from '../../src/components/Body/Section1.jsx';
 
 describe('Section', () => {
@@ -11,3 +12,4 @@ describe('Section', () => {
     );
   });
 });
+
