@@ -3,7 +3,7 @@ import Constants from '../constants/constants';
 
 export default{
   getUser(info) {
-    AppDispatcher.handleAction({
+    AppDispatcher.handleServerAction({
       actionType: Constants.AUTH,
       info,
     });

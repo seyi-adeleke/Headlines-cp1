@@ -26,7 +26,6 @@ export default class SelectSortOrder extends React.Component {
           >
             <option>Top</option>
             <option>Latest</option>
-            <option>Popular</option>
           </select>
         </div>
       </div>
@@ -34,5 +33,5 @@ export default class SelectSortOrder extends React.Component {
   }
 }
 SelectSortOrder.propTypes = {
-  getSort: PropTypes.any.isRequired,
+  getSort: PropTypes.func.isRequired,
 };

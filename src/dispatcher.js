@@ -16,7 +16,7 @@ AppDispatcher.handleServerAction = function apiControl(action) {
   });
 };
 
-AppDispatcher.handleAction = function auth(action) {
+AppDispatcher.handleServerAction = function auth(action) {
   this.dispatch({
     source: 'SERVER_ACTION',
     action,

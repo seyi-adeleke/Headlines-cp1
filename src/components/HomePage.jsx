@@ -1,10 +1,11 @@
 import React from 'react';
-import GoogleLogin from 'react-google-login';
-import action from '../Actions/actions-auth.js';
-import store from '../store/authStore.js';
 import { Link } from 'react-router';
 
-class Login extends React.Component {
+import GoogleLogin from 'react-google-login';
+import action from '../Actions/actions-auth';
+import store from '../store/authStore';
+
+export default class Homepage extends React.Component {
   constructor(props) {
     super(props);
     this.state = { credentials: {
@@ -44,7 +45,7 @@ class Login extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="welcome">
         <form>
           <div className="text-center">
             <div className="text-center">
@@ -76,5 +77,3 @@ class Login extends React.Component {
     );
   }
 }
-
-export default Login;
