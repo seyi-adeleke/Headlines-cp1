@@ -24,6 +24,7 @@
     "javascript"
   ],
   "dependencies": {
+    "coveralls": "^2.13.1",
     "cross-env": "^3.2.4",
     "express": "^4.15.2",
     "extract-text-webpack-plugin": "^2.1.2",
