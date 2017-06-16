@@ -3,11 +3,6 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: 'public/index.html',
-  filename: 'index.html',
-  inject: 'body',
-});
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -19,7 +14,12 @@ module.exports = {
   },
 
 
-  plugins: [HtmlWebpackPluginConfig,
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'public/index.html',
+      filename: 'index.html',
+      inject: 'body',
+    }),
     new ExtractTextPlugin('public/bundle.css'),
     new webpack.optimize.UglifyJsPlugin({
       minimize: true,
