@@ -15,4 +15,9 @@ describe(' auth Store', () => {
       type: constants.AUTH,
     });
   });
+  test('should respond to a dispatch call', () => {
+    dispatcher.handleServerAction({
+      type: constants.LOGOUT,
+    });
+  });
 });
