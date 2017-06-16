@@ -7,7 +7,7 @@ import sinon from 'sinon';
 import SelectSortOrder from '../../src/components/Body/SelectSortOrder';
 
 describe('SelectNewsSource state', () => {
-  const wrapper = shallow(<SelectSortOrder getSort={newState => this.newSort(newState)} />);
+  const wrapper = mount(<SelectSortOrder getSort={newState => this.newSort(newState)} />);
   it('renders correctly', () => {
     const rendered = renderer.create(
      <SelectSortOrder getSource={newState => this.newSource(newState)} />,

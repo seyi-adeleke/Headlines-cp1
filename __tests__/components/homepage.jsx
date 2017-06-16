@@ -1,6 +1,8 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { expect } from 'chai';
+import ReactDOM from 'react-dom';
+
 import renderer from 'react-test-renderer';
 
 import GoogleLogin from 'react-google-login';

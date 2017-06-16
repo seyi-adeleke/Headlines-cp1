@@ -1,14 +1,21 @@
-import { expect } from 'chai';
-import ArticlesStore from '../../src/store/articlesStore';
+import expects from 'expect';
+
+import store from '../../src/store/articlesStore';
 import dispatcher from '../../src/dispatcher';
-import actions from '../../src/Actions/actions-server';
 import constants from '../../src/constants/constants';
 
-describe(' articles Store', () => {
-  test('initializes with no data from api', () => {
-    expect(ArticlesStore.getList().list).equal(null);
+jest.dontMock('../../src/store/articlesStore.js');
+
+describe('', () => {
+  it('should exist', () => {
+    expects(store).toExist();
   });
-  test('initializes with no data from api', () => {
-    expect(ArticlesStore.listInfo()).equal(null);
+  it('should return an empty array when instance is created', () => {
+    expect(store.getList().list).toBe(null);
+  });
+  it('should respond to a dispatch call', () => {
+    dispatcher.handleViewAction({
+      type: constants.NEW_NEWS,
+    });
   });
 });
