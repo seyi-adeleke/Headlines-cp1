@@ -56,7 +56,7 @@ export default class Section2 extends React.Component {
                           />
                         </td>
                         <td key={[1]}>{(sourceData[key].author)}</td>
-                        <td key={[2]}>{(sourceData[key].title)}</td>
+                        <td key={[2]}><b>{(sourceData[key].title)}</b></td>
                         <td key={[3]}>{(sourceData[key].description)}</td>
                         <td key={[4]}>
                           <a
