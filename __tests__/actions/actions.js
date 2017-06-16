@@ -3,6 +3,7 @@ import actions from '../../src/Actions/actions';
 import actionServer from '../../src/Actions/actions-server';
 import authActions from '../../src/Actions/actions-auth';
 import logoutActions from '../../src/Actions/action-logout';
+import constants from '../../src/constants/constants';
 
 import Api from '../../src/utils/ArticlesApi';
 
@@ -27,17 +28,13 @@ describe('Receive info Actions', () => {
 
 describe('Auth Actions', () => {
   test('gets a user', () => {
-   expect(authActions.getUser());
+    expect(authActions.getUser());
   });
 });
 
 
-describe('Logiut Actions', () => {
+describe('Logout Actions', () => {
   it('gets a user', () => {
-   expect(logoutActions.logout());
+    expect(logoutActions.logout());
   });
 });
-
-
-
-
