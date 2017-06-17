@@ -25,7 +25,7 @@ describe('SelectNewsSource state', () => {
    });
 });
 
-describe('SelectNewsSource state', () => {
+describe('homepage state', () => {
   const wrapper = shallow(<HomePage />);
   it('should have source state to be empty on load', () => {
     expect(wrapper.state().info).toBe('');
