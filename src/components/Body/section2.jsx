@@ -49,7 +49,7 @@ export default class Section2 extends React.Component {
                       (<tr>
                         <td>
                           <img
-                            key={[0]}
+                            key={key.toString()}
                             alt="Not Available"
                             style={{ width: 205 }}
                             src={(sourceData[key].urlToImage)}

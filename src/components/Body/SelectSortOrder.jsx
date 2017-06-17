@@ -15,6 +15,7 @@ export default class SelectSortOrder extends React.Component {
     this.props.getSort(event.target.value);
   }
   render() {
+    const sortBy = this.props.sortByAvailable;
     return (
       <div className="form-group">
         <label htmlFor>Priority</label>
@@ -24,8 +25,11 @@ export default class SelectSortOrder extends React.Component {
             defaultValue={this.state.sort}
             onChange={this.handleChange}
           >
-            <option>Top</option>
-            <option>Latest</option>
+            {
+            Object.keys(sortBy).map(key => (
+              <option key={key.toString()}>{sortBy[key]}</option>
+            ))
+          }
           </select>
         </div>
       </div>
@@ -34,4 +38,7 @@ export default class SelectSortOrder extends React.Component {
 }
 SelectSortOrder.propTypes = {
   getSort: PropTypes.func.isRequired,
+  sortByAvailable: PropTypes.oneOfType([
+    React.PropTypes.obj,
+  ]).isRequired,
 };

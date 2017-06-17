@@ -8,7 +8,7 @@ import action from '../../Actions/actions';
 export default class Section1 extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { source: 'abc-news-au', sort: 'top', info: '', showResults: false };
+    this.state = { source: 'abc-news-au', sortby: ['top'], sort: '', info: '', showResults: false };
     this.newSource = this.newSource.bind(this);
     this.newSort = this.newSort.bind(this);
     this.getNews = this.getNews.bind(this);
@@ -23,8 +23,8 @@ export default class Section1 extends React.Component {
   getNews() {
     action.receiveArticle(this.state.source, this.state.sort);
   }
-  newSource(newState) {
-    this.setState({ source: newState });
+  newSource(newState, sortAvailable) {
+    this.setState({ source: newState, sortby: sortAvailable });
   }
   newSort(newState) {
     this.setState({ sort: newState });
@@ -35,10 +35,16 @@ export default class Section1 extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-              <SelectNewsSource className="newsSource"getSource={newState => this.newSource(newState)} />
+              <SelectNewsSource
+                className="newsSource"
+                getSource={(newState, sortAvailable) => this.newSource(newState, sortAvailable)}
+              />
             </div>
             <div className="col-md-4">
-              <SelectSortOrder getSort={newState => this.newSort(newState)} />
+              <SelectSortOrder
+                sortByAvailable={this.state.sortby}
+                getSort={newState => this.newSort(newState)}
+              />
             </div>
             <div className="col-md-4" style={{ marginTop: 20 }}>
               <button
