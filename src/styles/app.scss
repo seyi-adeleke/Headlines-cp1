@@ -40,8 +40,11 @@ body {
 .panel-primary > .panel-heading {
   background-color: dodgerblue;
 }
+.user-name:hover:first-of-type {
+     background-color:dodgerblue;
+     color: black 
+}
 
-//
 
 .panel-table {
   .panel-body {

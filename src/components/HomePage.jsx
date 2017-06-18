@@ -49,7 +49,8 @@ export default class Homepage extends React.Component {
         <form>
           <div className="text-center">
             <div className="text-center">
-              <h2 className="page-header text-center"><em>HEADLINES</em></h2>
+              <h2 className="page-header text-center"><em>
+                <i className="fa fa-newspaper-o" /> HEADLINES</em></h2>
               <p>Get the latest News from your favourite blogs..</p>
             </div>
             { this.state.showButton ? false : <p>Sign in to get started</p> }

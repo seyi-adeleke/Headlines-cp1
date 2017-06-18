@@ -30,7 +30,7 @@ export default class Nav extends React.Component {
         <nav className="navbar navbar-tv-tracker navbar-fixed-top">
           <div className="container">
             <div className="navbar-header">
-              <a className="navbar-brand" href="/"><b>HEADLINES</b></a>
+              <a className="navbar-brand" href="/"><b><i style={{ color: 'black' }} className="fa fa-newspaper-o" /> HEADLINES</b></a>
             </div>
             <div className="collapse navbar-collapse" id="navbar">
               <form>
@@ -38,13 +38,13 @@ export default class Nav extends React.Component {
                   this.state.user ? <img
                     alt="not available"
                     src={this.state.info.user.info.imageUrl}
-                    style={{ marginTop: 8, marginLeft: 800, width: 30, borderRadius: 40 }}
+                    style={{ marginTop: 8, marginLeft: 750, width: 30, borderRadius: 40 }}
                   />
                   : null
                 }
                 {this.state.user ?
                   <ul className="nav navbar-nav navbar-right">
-                    <li><a className="navbar-brand">
+                    <li><a className="user-name">
                       {this.state.info.user.info.givenName}</a></li>
                     <li onClick={this.logUserOut}><a className="navbar-brand" >
                       <b>Log Out</b></a></li>
