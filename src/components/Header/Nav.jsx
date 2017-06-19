@@ -25,6 +25,7 @@ export default class Nav extends React.Component {
     action.logout(this.state.user);
   }
   render() {
+    const user = JSON.parse(localStorage.getItem('user'));
     return (
       <div>
         <nav className="navbar navbar-tv-tracker navbar-fixed-top">
@@ -35,19 +36,19 @@ export default class Nav extends React.Component {
             <div className="collapse navbar-collapse" id="navbar">
               <form>
                 {
-                  this.state.user ? <img
+                  user ? <img
                     alt="not available"
-                    src={this.state.info.user.info.imageUrl}
+                    src={user.info.imageUrl}
                     style={{ marginTop: 8, marginLeft: 750, width: 30, borderRadius: 40 }}
                   />
                   : null
                 }
-                {this.state.user ?
+                { user ?
                   <ul className="nav navbar-nav navbar-right">
                     <li><a className="user-name">
-                      {this.state.info.user.info.givenName}</a></li>
-                    <li onClick={this.logUserOut}><a className="navbar-brand" >
-                      <b>Log Out</b></a></li>
+                      { user.info.givenName}</a></li>
+                     <li onClick={this.logUserOut}><a className="navbar-brand" >
+                       <b>Log Out</b></a></li>
                   </ul>
                     : null}
               </form>
