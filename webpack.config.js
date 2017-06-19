@@ -60,6 +60,9 @@ module.exports = {
     new ExtractTextPlugin('public/bundle.css'),
     new webpack.optimize.UglifyJsPlugin({
       minimize: true,
+      sourceMap: true,
+      beautify: false,
+      comments: false,
       compress: {
         warnings: false,
       },
