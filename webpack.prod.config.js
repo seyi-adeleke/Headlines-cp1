@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 
 module.exports = {
@@ -15,6 +16,10 @@ module.exports = {
 
 
   plugins: [
+    new Dotenv({
+      path: './.env',
+      safe: false,
+    }),
     new HtmlWebpackPlugin({
       template: 'public/index.html',
       filename: 'index.html',

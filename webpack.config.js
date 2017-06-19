@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
+
 const webpack = require('webpack');
 
 const port = 3000;
@@ -49,6 +51,10 @@ module.exports = {
     port,
   },
   plugins: [
+    new Dotenv({
+      path: './.env',
+      safe: false,
+    }),
     new webpack.HotModuleReplacementPlugin(),
     HtmlWebpackPluginConfig,
     new ExtractTextPlugin('public/bundle.css'),
