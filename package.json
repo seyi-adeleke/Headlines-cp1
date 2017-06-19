@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --config ./webpack.prod.config.js --progress --colors ",
-    "start": "npm run build && node app.js",
+    "start": "node app.js",
     "dev": "webpack-dev-server  --history-api-fallback",
     "test": "jest --coverage -u"
   },
