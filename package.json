@@ -14,7 +14,9 @@
   },
   "jest": {
     "collectCoverage": true,
-    "setupTestFrameworkScriptFile": "./__mocks__/localStorageMock.js"
+    "setupFiles": [
+      "<rootDir>/__mocks__/localStoragemock.js"
+    ]
   },
   "repository": {
     "type": "git",
