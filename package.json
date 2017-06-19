@@ -8,9 +8,13 @@
   "license": "MIT",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --config ./webpack.prod.config.js --progress --colors ",
-    "start": "node app.js",
+    "start": "npm run build && node app.js",
     "dev": "webpack-dev-server  --history-api-fallback",
     "test": "jest --coverage -u"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "setupTestFrameworkScriptFile": "./__mocks__/localStorageMock.js"
   },
   "repository": {
     "type": "git",
