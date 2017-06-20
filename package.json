@@ -10,7 +10,7 @@
     "start": "webpack-dev-server -d --config webpack.config.js --progress --colors",
     "prod": "NODE_ENV=production node app.js",
     "build": "webpack --config webpack.config.js  --progress --colors",
-    "heroku-postbuild": "webpack -p --config ./webpack.config.js --progress",
+    "heroku-postbuild": "webpack  --config ./webpack.config.js --progress",
     "test": "jest --coverage -u"
   },
   "jest": {
