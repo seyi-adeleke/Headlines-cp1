@@ -21,15 +21,12 @@ export default class Homepage extends React.Component {
   googleResponseFailure() {
       alert("epp me abeg");
   }
-
   googleResponse(response) {
     action.getUser(response.profileObj);
     const user = response.profileObj;
-    if (response) {
-      this.setState({
-        info: user,
-      });
-    }
+    this.setState({
+      info: user,
+    });
   }
   render() {
     const token = localStorage.getItem('user');
@@ -46,7 +43,7 @@ export default class Homepage extends React.Component {
             { token ? false : <p>Sign in to get started</p> }
             { token ? false :
             <GoogleLogin
-              clientId="983844901383-e2l2k4ss3biu09vkjsoskmbnvpuriqbk.apps.googleusercontent.com"
+              clientId={process.env.GOOGLE_ID}
               buttonText="Sign In"
               onSuccess={this.googleResponse}
               onFailure={this.googleResponseFailure}
