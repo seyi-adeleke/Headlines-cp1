@@ -7,10 +7,16 @@
   "author": "Adeleke Adetokunbo",
   "license": "MIT",
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack --config ./webpack.prod.config.js --progress --colors ",
-    "start": "node app.js",
-    "dev": "webpack-dev-server  --history-api-fallback",
+    "start": "NODE_ENV=production webpack --progress && NODE_ENV=production node app.js",
+    "dev": "webpack-dev-server --progress --colors --watch",
+    "build": "webpack --progress --watch",
     "test": "jest --coverage -u"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "setupFiles": [
+      "<rootDir>/__mocks__/localStoragemock.js"
+    ]
   },
   "repository": {
     "type": "git",
@@ -24,10 +30,16 @@
     "javascript"
   ],
   "dependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.1",
     "coveralls": "^2.13.1",
     "cross-env": "^3.2.4",
+    "css-loader": "^0.28.0",
+    "dotenv-webpack": "^1.5.0",
     "express": "^4.15.2",
     "extract-text-webpack-plugin": "^2.1.2",
+    "file-loader": "^0.11.1",
     "flux": "^3.1.2",
     "html-webpack-plugin": "^2.28.0",
     "mercury-parser": "^1.0.0",
@@ -40,22 +52,21 @@
     "react-router": "^2.5.2",
     "react-select": "^1.0.0-rc.5",
     "react-share": "^1.14.1",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.16.1",
     "superagent": "^3.5.2",
     "webpack": "^2.6.1",
     "webpack-dev-middleware": "^1.10.2",
     "webpack-hot-middleware": "^2.18.0"
   },
   "devDependencies": {
-    "babel-core": "^6.24.1",
     "babel-jest": "^20.0.3",
-    "babel-loader": "^6.4.1",
     "babel-polyfill": "^6.23.0",
     "babel-preset-latest": "^6.22.0",
     "babel-preset-react": "^6.24.1",
     "chai": "^4.0.2",
     "chai-http": "^3.0.0",
     "coveralls": "^2.13.1",
-    "css-loader": "^0.28.0",
     "enzyme": "^2.8.2",
     "enzyme-to-json": "^1.5.1",
     "eslint": "^3.19.0",
@@ -64,14 +75,10 @@
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.0.1",
     "expect": "^1.20.2",
-    "file-loader": "^0.11.1",
     "jest": "^20.0.4",
-    "node-sass": "^4.5.2",
     "react-hot-loader": "^3.0.0-beta.6",
     "react-test-renderer": "^15.5.4",
-    "sass-loader": "^3.2.0",
     "sinon": "^2.3.4",
-    "style-loader": "^0.16.1",
     "url-loader": "^0.5.8",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.2"

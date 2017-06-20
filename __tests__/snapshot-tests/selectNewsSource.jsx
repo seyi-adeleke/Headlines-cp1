@@ -17,21 +17,13 @@ describe('SelectNewsSource state', () => {
     expect(rendered.toJSON()).toMatchSnapshot();
   });
 
-   it('should have source state to be empty on load', () => {
-     expect(wrapper.state().source).toBe('');
-   });
-   it('should have newsSource state to be [] on load', () => {
-     expect(wrapper.state().newsSources.length).toBe(0);
-   });
+
 });
 
 describe('homepage state', () => {
   const wrapper = shallow(<HomePage />);
   it('should have source state to be empty on load', () => {
     expect(wrapper.state().info).toBe('');
-  });
-  it('should have newsSource state to be [] on load', () => {
-    expect(wrapper.state().showButton).toBe(false);
   });
 });
 
