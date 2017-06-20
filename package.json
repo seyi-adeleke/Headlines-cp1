@@ -7,9 +7,9 @@
   "author": "Adeleke Adetokunbo",
   "license": "MIT",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "prod": "NODE_ENV=production node app.js",
-    "postinstall": "webpack -p",
+    "start": "NODE_ENV=production webpack --progress && NODE_ENV=production node app.js",
+    "dev": "webpack-dev-server --progress --colors --watch",
+    "build": "webpack --progress --watch",
     "test": "jest --coverage -u"
   },
   "jest": {
