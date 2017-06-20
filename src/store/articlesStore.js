@@ -24,7 +24,7 @@ const ArticleStore = ObjectAssign({}, EventEmitter.prototype, {
     return store;
   },
   listInfo() {
-    return store.list;
+    //
   },
 });
 
@@ -36,10 +36,8 @@ AppDispatcher.register((payload) => {
       store.list = newArticle;
       ArticleStore.emit(CHANGE_EVENT);
       break;
-
     default:
       return true;
   }
 });
-
 export default ArticleStore;
