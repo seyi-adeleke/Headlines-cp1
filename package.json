@@ -7,10 +7,9 @@
   "author": "Adeleke Adetokunbo",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server -d --config webpack.config.js --progress --colors",
-    "prod": "NODE_ENV=production node app.js",
-    "build": "webpack --config webpack.config.js  --progress --colors",
-    "heroku-postbuild": "webpack  --config ./webpack.config.js --progress",
+    "start": "NODE_ENV=production webpack --progress && NODE_ENV=production node app.js",
+    "dev": "webpack-dev-server --progress --colors --watch",
+    "build": "webpack --progress --watch",
     "test": "jest --coverage -u"
   },
   "jest": {
