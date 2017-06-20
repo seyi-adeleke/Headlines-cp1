@@ -7,9 +7,9 @@
   "author": "Adeleke Adetokunbo",
   "license": "MIT",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "prod": "NODE_ENV=production node app.js",
-    "postinstall": "webpack -p",
+    "build": "cross-env NODE_ENV=production webpack --config ./webpack.prod.config.js --progress --colors ",
+    "start": "node app.js",
+    "dev": "webpack-dev-server  --history-api-fallback",
     "test": "jest --coverage -u"
   },
   "jest": {
