@@ -7,9 +7,10 @@
   "author": "Adeleke Adetokunbo",
   "license": "MIT",
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack --config ./webpack.prod.config.js --progress --colors ",
-    "start": "node app.js",
-    "dev": "webpack-dev-server  --history-api-fallback",
+    "start": "webpack-dev-server -d --config webpack.config.js --progress --colors",
+    "prod": "NODE_ENV=production node app.js",
+    "build": "webpack --config webpack.config.js  --progress --colors",
+    "postinstall": "webpack --config webpack.config.js  --progress --colors",
     "test": "jest --coverage -u"
   },
   "jest": {
