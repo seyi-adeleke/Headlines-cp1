@@ -19,13 +19,12 @@ export default class Homepage extends React.Component {
     this.setState({ info: store.getUser() });
   }
   googleResponseFailure() {
-      alert("epp me abeg");
+    //
   }
   googleResponse(response) {
     action.getUser(response.profileObj);
-    const user = response.profileObj;
     this.setState({
-      info: user,
+      info: user.response.profileObj,
     });
   }
   render() {
