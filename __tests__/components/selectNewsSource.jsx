@@ -4,7 +4,7 @@ import { shallow, mount } from 'enzyme';
 import NewsSource from '../../src/components/Body/SelectNewsSource';
 
 
-jest.unmock('../../src/components/Body/SelectNewsSource');
+jest.unmock('../../__mocks__/superagent.js');
 
 describe('NewsSource', () => {
   const wrapper = mount(<NewsSource />);

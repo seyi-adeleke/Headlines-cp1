@@ -6,7 +6,8 @@ import renderer from 'react-test-renderer';
 import HomePage from '../../src/components/HomePage';
 
 import SelectNewsSource from '../../src/components/Body/SelectNewsSource';
-
+ 
+jest.unmock('../../__mocks__/superagent.js');
 
 describe('SelectNewsSource state', () => {
   const wrapper = shallow(<SelectNewsSource getSource={newState => this.newSource(newState)} />);
