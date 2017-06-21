@@ -10,7 +10,7 @@
     "start": "NODE_ENV=production webpack --progress && NODE_ENV=production node app.js",
     "dev": "webpack-dev-server --progress --colors --watch",
     "build": "webpack --progress --watch",
-    "test": "jest --coverage -u"
+    "test": "jest --coverage"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
