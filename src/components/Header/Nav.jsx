@@ -18,9 +18,6 @@ export default class Nav extends React.Component {
   onChange() {
     this.setState({ user: true, info: store.getUser() });
   }
-  componentDidUnMount() {
-    store.removeChangeListener(this.onChange);
-  }
   logUserOut() {
     action.logout(this.state.user);
   }
