@@ -43,7 +43,7 @@ export default class Homepage extends React.Component {
             { token ? false : <p>Sign in to get started</p> }
             { token ? false :
             <GoogleLogin
-              clientId={process.env.GOOGLE_ID}
+              clientId="983844901383-e2l2k4ss3biu09vkjsoskmbnvpuriqbk.apps.googleusercontent.com"
               buttonText="Sign In"
               onSuccess={this.googleResponse}
               onFailure={this.googleResponseFailure}
