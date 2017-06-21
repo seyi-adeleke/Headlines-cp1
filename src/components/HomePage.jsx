@@ -24,7 +24,7 @@ export default class Homepage extends React.Component {
   googleResponse(response) {
     action.getUser(response.profileObj);
     this.setState({
-      info: user.response.profileObj,
+      info: response.profileObj,
     });
   }
   render() {
