@@ -16,7 +16,7 @@ export default class SelectNewsSource extends React.Component {
       }
       this.setState({
         newsSources: response.body.sources,
-        source: response.body.sources[0].id,
+        source: response.body.sources.id,
       });
       return response.body;
     });
@@ -24,10 +24,16 @@ export default class SelectNewsSource extends React.Component {
 
 
   handleChange(event) {
+    const sortAvailable = (event.target.value.split(','));
+    const source = sortAvailable.shift();
+    //console.log(source);
+    //console.log(sourceData)
     this.setState({
-      source: event.target.value,
+      source,
     });
-    this.props.getSource(event.target.value);
+   // console.log(this.state.source);
+    this.props.getSource(source, sortAvailable);
+    //this.props.sortAvailable(sourceData);
   }
   render() {
     return (
@@ -41,7 +47,12 @@ export default class SelectNewsSource extends React.Component {
           >
             {this.state.newsSources.map(sources =>
                (
-                 <option key={sources.id} value={sources.id}> {sources.name} </option>
+                 <option
+                   id={sources.sortBysAvailable}
+                   key={sources.id}
+                   /* value={sources.id} */
+                   value={[sources.id, sources.sortBysAvailable]}
+                 > {sources.name} </option>
                  ),
         )}
           </select>

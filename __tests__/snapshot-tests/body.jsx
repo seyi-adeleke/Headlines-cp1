@@ -5,6 +5,8 @@ import toJson from 'enzyme-to-json';
 
 import Body from '../../src/components/Body.jsx';
 
+jest.unmock('../../__mocks__/superagent.js');
+
 describe('Body Component', () => {
   it('should match the Body snapshot', () => {
     const component = mount(<Body />);

@@ -3,6 +3,8 @@ const Server = require('./server.js');
 const port = (process.env.PORT || 3000);
 const app = Server.app();
 
+/*
+
 if (process.env.NODE_ENV !== 'production') {
   const webpack = require('webpack');
   const webpackDevMiddleware = require('webpack-dev-middleware');
@@ -16,6 +18,7 @@ if (process.env.NODE_ENV !== 'production') {
     publicPath: config.output.publicPath,
   }));
 }
+*/
 
 app.listen(port);
 console.log(`Listening at http://localhost:${port}`);

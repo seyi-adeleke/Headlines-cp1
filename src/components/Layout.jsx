@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Header from './Header.jsx';
-
+import Footer from './Footer.jsx';
 
 const Layout = props => (
   <div>
@@ -10,6 +10,7 @@ const Layout = props => (
     <br />
     <br />
     {props.children}
+    <Footer />
   </div>
 );
 

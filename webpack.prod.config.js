@@ -2,12 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
-const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: 'public/index.html',
-  filename: 'index.html',
-  inject: 'body',
-});
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -19,7 +15,16 @@ module.exports = {
   },
 
 
-  plugins: [HtmlWebpackPluginConfig,
+  plugins: [
+    new Dotenv({
+      path: './.env',
+      safe: false,
+    }),
+    new HtmlWebpackPlugin({
+      template: 'public/index.html',
+      filename: 'index.html',
+      inject: 'body',
+    }),
     new ExtractTextPlugin('public/bundle.css'),
     new webpack.optimize.UglifyJsPlugin({
       minimize: true,
@@ -39,7 +44,7 @@ module.exports = {
       {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
-          use: 'css-loader!sass-loader',
+          use: 'css-loader!sass-loader?sourceMap',
         }),
       },
       {

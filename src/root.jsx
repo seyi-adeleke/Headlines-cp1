@@ -21,20 +21,21 @@ export default class Root extends React.Component {
     this.setState({ info: store.getUser() });
   }
   checkUserState(nextState, replace, next) {
-    if (this.state.info === null) {
+    const user = (localStorage.getItem('user'));
+    if (user === null) {
       replace('/');
     }
     next();
   }
   noAuth(nextState, replace, next) {
-    if (this.state.info === {}) {
+    if (this.state.info !== null) {
       replace('/headlines');
     }
     next();
   }
   render() {
     return (
-      <Router h history={browserHistory}>
+      <Router history={browserHistory}>
         <Route path="/" component={Layout} onEnter={this.noAuth}>
           <Route path="headlines" component={Body} onEnter={this.checkUserState} />
           <Route path="*" component={NotFound} />
