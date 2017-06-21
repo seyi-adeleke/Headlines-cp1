@@ -9,9 +9,7 @@ describe('Layout', () => {
   it('should have have a Header', () => {
     expect(wrapper.find('Header')).to.have.length(1);
   });
-  
   it('should have have line breaks', () => {
     expect(wrapper.find('br')).to.have.length(3);
   });
-
 });
