@@ -23,14 +23,10 @@ export default class SelectNewsSource extends React.Component {
   handleChange(event) {
     const sortAvailable = (event.target.value.split(','));
     const source = sortAvailable.shift();
-    //console.log(source);
-    //console.log(sourceData)
     this.setState({
       source,
     });
-   // console.log(this.state.source);
     this.props.getSource(source, sortAvailable);
-    //this.props.sortAvailable(sourceData);
   }
   render() {
     return (
