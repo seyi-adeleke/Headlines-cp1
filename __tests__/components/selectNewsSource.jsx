@@ -5,7 +5,7 @@ import NewsSource from '../../src/components/Body/SelectNewsSource';
 
 
 jest.unmock('../../__mocks__/superagent.js');
-
+jest.dontMock('../../src/components/Body/SelectNewsSource.jsx');
 describe('NewsSource', () => {
   const wrapper = mount(<NewsSource />);
   it('should have have divs', () => {

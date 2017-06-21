@@ -11,9 +11,6 @@ export default class SelectNewsSource extends React.Component {
   componentDidMount() {
     this.serverRequest = request.get('https://newsapi.org/v1/sources?language=en')
     .end((error, response) => {
-      if (error) {
-        return error;
-      }
       this.setState({
         newsSources: response.body.sources,
         source: response.body.sources.id,
