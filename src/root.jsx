@@ -5,16 +5,17 @@ import Body from './components/Body.jsx';
 import HomePage from './components/HomePage.jsx';
 import NotFound from './components/NotFound.jsx';
 import store from '../src/store/authStore.js';
+
 /**
  * @export Root
  * @class Root
  * @extends {React.Component}
  */
-export default class Root extends React.Component {
+class Root extends React.Component {
   /**
    * Creates an instance of Root.
    * @param {object, methods} props
-   *  @memberof Root
+   * @memberof Root
    */
   constructor(props) {
     super(props);
@@ -23,16 +24,25 @@ export default class Root extends React.Component {
     this.checkUserState = this.checkUserState.bind(this);
     this.noAuth = this.noAuth.bind(this);
   }
+
   /**
    * adds a change listener on component render
    * @memberof Root
+   * @returns {void}
    */
+
   componentDidMount() {
     store.addChangeListener(this.onChange);
   }
+
+  /**
+   * @memberof Root
+   * @returns {void}
+   */
   onChange() {
     this.setState({ info: store.getUser() });
   }
+
 /**
  * @param {any} nextState
  * @param {method} replace
@@ -46,12 +56,14 @@ export default class Root extends React.Component {
     }
     next();
   }
+
   noAuth(nextState, replace, next) {
     if (this.state.info !== null) {
       replace('/headlines');
     }
     next();
   }
+
   render() {
     return (
       <Router history={browserHistory}>
@@ -64,3 +76,5 @@ export default class Root extends React.Component {
     );
   }
 }
+
+export default Root;

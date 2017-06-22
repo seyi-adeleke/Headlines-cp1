@@ -16,7 +16,7 @@ const GoogleIcon = generateShareIcon('google');
  * @class Section2
  * @extends {React.Component}
  */
-export default class Section2 extends React.Component {
+class Section2 extends React.Component {
   constructor(props) {
     super(props);
     this.state = { data: this.props.data };
@@ -105,6 +105,7 @@ export default class Section2 extends React.Component {
     );
   }
 }
+export default Section2;
 
 Section2.propTypes = {
   data: PropTypes.oneOfType([

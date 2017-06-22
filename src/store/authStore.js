@@ -29,6 +29,7 @@ const AuthStore = ObjectAssign({}, EventEmitter.prototype, {
     return store;
   },
 });
+
 /**
  * registers a new payload based on event emmitted
  */

@@ -7,7 +7,7 @@ import action from '../../Actions/action-logout';
  * @class Nav
  * @extends {React.Component}
  */
-export default class Nav extends React.Component {
+class Nav extends React.Component {
   /**
    * Creates an instance of Nav.
    * @param {function, object} props
@@ -21,20 +21,25 @@ export default class Nav extends React.Component {
     this.onChange = this.onChange.bind(this);
     this.logUserOut = this.logUserOut.bind(this);
   }
+
   /**
    * Adds a change listener on component mount
    * @memberof Nav
+   * @return {void}
    */
   componentDidMount() {
     store.addChangeListener(this.onChange);
   }
+
   /**
    * Listens for a change event
    * @memberof Nav
+   * @return {void}
    */
   onChange() {
     this.setState({ user: true, info: store.getUser() });
   }
+
   /**
    * Passes the users data to the logout action
    * @memberof Nav
@@ -42,6 +47,7 @@ export default class Nav extends React.Component {
   logUserOut() {
     action.logout(this.state.user);
   }
+
   render() {
     const user = JSON.parse(localStorage.getItem('user'));
     return (
@@ -77,3 +83,5 @@ export default class Nav extends React.Component {
     );
   }
 }
+
+export default Nav;
