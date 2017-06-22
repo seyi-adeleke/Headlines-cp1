@@ -2,12 +2,22 @@ import React from 'react';
 import request from 'superagent';
 import PropTypes from 'prop-types';
 
-export default class SelectNewsSource extends React.Component {
+/**
+ * @export SelectNewsSource
+ * @class SelectNewsSource
+ * @extends {React.Component}
+ */
+class SelectNewsSource extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.state = { source: '', newsSources: [] };
   }
+
+  /**
+   * makes an api call on component mount
+   * @memberof SelectNewsSource
+   */
   componentDidMount() {
     this.serverRequest = request.get('https://newsapi.org/v1/sources?language=en')
     .end((error, response) => {
@@ -19,13 +29,18 @@ export default class SelectNewsSource extends React.Component {
     });
   }
 
-
+  /**
+   * handles change events
+   * @param {array} event
+   * @memberof SelectNewsSource
+   */
   handleChange(event) {
     this.setState({
       source: event.target.value.split(',').shift(),
     });
     this.props.getSource(event.target.value.split(',').shift(), event.target.value.split(',').slice(1));
   }
+
   render() {
     return (
       <div className="form-group">
@@ -41,7 +56,6 @@ export default class SelectNewsSource extends React.Component {
                  <option
                    id={sources.sortBysAvailable}
                    key={sources.id}
-                   /* value={sources.id} */
                    value={[sources.id, sources.sortBysAvailable]}
                  > {sources.name} </option>
                  ),
@@ -52,6 +66,9 @@ export default class SelectNewsSource extends React.Component {
     );
   }
 }
+export default SelectNewsSource;
+
+
 SelectNewsSource.propTypes = {
   getSource: PropTypes.func.isRequired,
 };

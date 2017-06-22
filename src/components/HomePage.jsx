@@ -1,32 +1,51 @@
 import React from 'react';
 import { Link } from 'react-router';
-
 import GoogleLogin from 'react-google-login';
 import action from '../Actions/actions-auth';
 import store from '../store/authStore';
 
-export default class Homepage extends React.Component {
+/**
+ * @export  Homepage
+ * @class Homepage
+ * @extends {React.Component}
+ */
+class Homepage extends React.Component {
+  /**
+   * Creates an instance of Homepage.
+   * @param {object, function} props
+   * @memberof Homepage
+   */
   constructor(props) {
     super(props);
     this.state = {
       info: '',
     };
     this.googleResponse = this.googleResponse.bind(this);
-    this.googleResponseFailure = this.googleResponseFailure.bind(this);
     this.onChange = this.onChange.bind(this);
   }
+
+  /**
+   * Sets state onChange
+   * @memberof Homepage
+   * @returns {void}
+   */
   onChange() {
     this.setState({ info: store.getUser() });
   }
-  googleResponseFailure() {
-    //
-  }
+
+  /**
+   *  Parses the google authentiction request
+   *  @param {object}
+   *  @memberof Homepage
+   *  @returns {void}
+   */
   googleResponse(response) {
     action.getUser(response.profileObj);
     this.setState({
       info: response.profileObj,
     });
   }
+
   render() {
     const token = localStorage.getItem('user');
     const user = JSON.parse(token);
@@ -64,3 +83,4 @@ export default class Homepage extends React.Component {
     );
   }
 }
+export default Homepage;

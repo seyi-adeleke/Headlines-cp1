@@ -11,15 +11,17 @@ const TwitterIcon = generateShareIcon('twitter');
 const FacebookIcon = generateShareIcon('facebook');
 const GoogleIcon = generateShareIcon('google');
 
-export default class Section2 extends React.Component {
+/**
+ * @export Section2
+ * @class Section2
+ * @extends {React.Component}
+ */
+class Section2 extends React.Component {
   constructor(props) {
     super(props);
     this.state = { data: this.props.data };
   }
   render() {
-    //const obj = this.props.data.list;
-   // const sourceName = obj.source;
-    //const sourceData = this.props.data.list.articles;
     return (
       <div className="container">
         <hr />
@@ -103,6 +105,7 @@ export default class Section2 extends React.Component {
     );
   }
 }
+export default Section2;
 
 Section2.propTypes = {
   data: PropTypes.oneOfType([

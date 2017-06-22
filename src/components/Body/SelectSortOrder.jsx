@@ -1,19 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
-export default class SelectSortOrder extends React.Component {
+/**
+ * @export SelectSortOrder
+ * @class SelectSortOrder
+ * @extends {React.Component}
+ */
+class SelectSortOrder extends React.Component {
+  /**
+   * Creates an instance of SelectSortOrder.
+   * @param {function, object} props
+   * @memberof SelectSortOrder
+   */
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.state = { sort: '' };
   }
+
+  /**
+   * Listens for a change event on the select tag
+   * @param {string} event
+   * @memberof SelectSortOrder
+   */
   handleChange(event) {
     this.setState({
       sort: event.target.value,
     });
     this.props.getSort(event.target.value);
   }
+
   render() {
     const sortBy = this.props.sortByAvailable;
     return (
@@ -36,6 +52,9 @@ export default class SelectSortOrder extends React.Component {
     );
   }
 }
+
+export default SelectSortOrder;
+
 SelectSortOrder.propTypes = {
   getSort: PropTypes.func.isRequired,
   sortByAvailable: PropTypes.oneOfType([
