@@ -5,6 +5,11 @@ import Section2 from './section2.jsx';
 import store from '../../store/articlesStore';
 import action from '../../Actions/actions';
 
+/**
+ * @export Section1
+ * @class Section1
+ * @extends {React.Component}
+ */
 export default class Section1 extends React.Component {
   constructor(props) {
     super(props);
@@ -14,21 +19,46 @@ export default class Section1 extends React.Component {
     this.getNews = this.getNews.bind(this);
     this.onChange = this.onChange.bind(this);
   }
+  /**
+   * Adds an event listener on component mount.
+   * @memberof Section1
+   */
   componentDidMount() {
     store.addChangeListener(this.onChange);
   }
+  /**
+   * Listens for an onChange event and sets the state
+   * @memberof Section1
+   */
   onChange() {
     this.setState({ info: store.getList(), showResults: true });
   }
+  /**
+   * sends data from child components to the action
+   * @memberof Section1
+   */
   getNews() {
     action.receiveArticle(this.state.source, this.state.sort);
   }
+  /**
+   * @param {string} newState: the name of a new source
+   * @param {array} sortAvailable: an array of available sort options.
+   * @memberof Section1
+   */
   newSource(newState, sortAvailable) {
     this.setState({ source: newState, sortby: sortAvailable });
   }
+  /**
+   * @param {any} newState: the new sort value
+   * @memberof Section1
+   */
   newSort(newState) {
     this.setState({ sort: newState });
   }
+  /**
+   * @returns component
+   * @memberof Section1
+   */
   render() {
     return (
       <div>
