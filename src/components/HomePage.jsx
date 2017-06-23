@@ -66,7 +66,7 @@ class Homepage extends React.Component {
               onSuccess={this.googleResponse}
               onFailure={this.googleResponseFailure}
             ><i className="fa fa-google-plus" /></GoogleLogin> }
-            { token ? <p className="text-center">Welcome, {user.info.name}</p>
+            { token ? <p className="text-center">Welcome, {user.info.name} </p>
             : null}
             { token ? <div className="col-md-4" style={{ marginTop: 20 }}>
               <Link to={'headlines'}><button
