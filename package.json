@@ -14,17 +14,16 @@
   },
   "jest": {
     "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
-
     "collectCoverage": true,
     "setupFiles": [
       "<rootDir>/__mocks__/localStoragemock.js",
       "<rootDir>/__mocks__/superagent.js"
     ],
     "unmockedModulePathPatterns": [
-    "react",
-    "enzyme",
-    "jest-enzyme"
-    ]  
+      "react",
+      "enzyme",
+      "jest-enzyme"
+    ]
   },
   "repository": {
     "type": "git",
@@ -53,6 +52,7 @@
     "object-assign": "^4.1.1",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
+    "react-alert": "^2.1.2",
     "react-dom": "^15.5.4",
     "react-google-login": "^2.8.9",
     "react-router": "^2.5.2",

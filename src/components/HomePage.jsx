@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import GoogleLogin from 'react-google-login';
+import AlertContainer from 'react-alert';
 import action from '../Actions/actions-auth';
 import actionArticles from '../Actions/actions';
 import store from '../store/authStore';
@@ -26,6 +27,15 @@ class Homepage extends React.Component {
     this.googleResponse = this.googleResponse.bind(this);
     this.onChange = this.onChange.bind(this);
     this.getNews = this.getNews.bind(this);
+    this.googleResponseFailure = this.googleResponseFailure.bind(this);
+
+    this.showAlert = () => {
+      this.msg.error('Sorry, there was an error.', {
+        theme: 'light',
+        time: 4000,
+        type: 'error',
+      });
+    };
   }
 
   /**
@@ -36,10 +46,7 @@ class Homepage extends React.Component {
   onChange() {
     this.setState({ info: store.getUser() });
   }
- 
- /**
-  * @memberof Homepage
-  */
+
   getNews() {
     if (this.ref) {
       actionArticles.receiveArticle(this.state.source, 'top');
@@ -59,6 +66,19 @@ class Homepage extends React.Component {
     });
   }
 
+  /**
+   * handles on failure response from the google api.
+   * @return {void}
+   * @memberof Homepage
+   */
+  googleResponseFailure() {
+    this.showAlert();
+  }
+
+  /**
+   * @param {any} newState
+   * @memberof Homepage
+   */
   newSource(newState) {
     this.setState({
       source: newState,
@@ -84,7 +104,9 @@ class Homepage extends React.Component {
               buttonText="Sign In"
               onSuccess={this.googleResponse}
               onFailure={this.googleResponseFailure}
-            ><i className="fa fa-google-plus" /></GoogleLogin> }
+            ><i className="fa fa-google-plus" />
+              <AlertContainer ref={a => this.msg = a} />
+            </GoogleLogin> }
             { token ? <p className="text-center">Welcome, {user.info.name} </p>
             : null}
             { token ? <SelectNewsSource ref={(c) => { this.ref = c; }} getSource={(newState, sortAvailable) => this.newSource(newState, sortAvailable)} /> : null }
