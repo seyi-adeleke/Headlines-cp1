@@ -58,24 +58,19 @@ class Nav extends React.Component {
               <a className="navbar-brand" href="/"><b><i style={{ color: 'black' }} className="fa fa-newspaper-o" /> HEADLINES</b></a>
             </div>
             <div className="collapse navbar-collapse" id="navbar">
-              <form>
-                {
-                  user ? <img
-                    alt="not available"
-                    src={user.info.imageUrl}
-                    style={{ marginTop: 8, marginLeft: 750, width: 30, borderRadius: 40 }}
-                  />
-                  : null
-                }
+              <ul className="nav navbar-nav navbar-right">
                 { user ?
                   <ul className="nav navbar-nav navbar-right">
-                    <li><a className="user-name">
-                      { user.info.givenName}</a></li>
-                     <li onClick={this.logUserOut}><a className="navbar-brand" >
-                       <b>Log Out</b></a></li>
+                    <img
+                      alt="not available"
+                      src={user.info.imageUrl}
+                      style={{ marginTop:6, marginRight: 10, width: 30, borderRadius: 40 }}
+                    />
+                    <span>{ user.info.givenName } </span>
+                    <a><button type="button" onClick={this.logUserOut} className="btn btn-default navbar-btn">Logout</button></a>
                   </ul>
                     : null}
-              </form>
+              </ul>
             </div>
           </div>
         </nav>

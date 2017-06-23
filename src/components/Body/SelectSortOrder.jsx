@@ -34,8 +34,8 @@ class SelectSortOrder extends React.Component {
     const sortBy = this.props.sortByAvailable;
     return (
       <div className="form-group">
-        <label htmlFor>Priority</label>
-        <div className="col-sm-12">
+        <label htmlFor>Sort</label>
+        <div className="col-sm-12 ">
           <select
             className="form-control"
             defaultValue={this.state.sort}
