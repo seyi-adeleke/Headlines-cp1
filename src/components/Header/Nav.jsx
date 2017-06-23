@@ -64,10 +64,10 @@ class Nav extends React.Component {
                     <img
                       alt="not available"
                       src={user.info.imageUrl}
-                      style={{ marginTop:6, marginRight: 10, width: 30, borderRadius: 40 }}
+                      style={{ marginTop: 6, marginRight: 10, width: 30, borderRadius: 40 }}
                     />
                     <span>{ user.info.givenName } </span>
-                    <a><button type="button" onClick={this.logUserOut} className="btn btn-default navbar-btn">Logout</button></a>
+                    <a><button type="button" onClick={this.logUserOut} className="btn logout-btn navbar-btn">Logout</button></a>
                   </ul>
                     : null}
               </ul>
