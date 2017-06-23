@@ -4,30 +4,40 @@ import Constants from '../constants/constants';
 
 const EventEmitter = require('events').EventEmitter;
 
-
 const CHANGE_EVENT = 'change';
 
+/**
+ * {object}
+ * Stores a list of articles
+ */
 const store = {
   list: null,
 };
 
-
+/**
+ * creates a clone of article store
+ */
 const ArticleStore = ObjectAssign({}, EventEmitter.prototype, {
-
   addChangeListener(cb) {
     this.on(CHANGE_EVENT, cb);
   },
   removeChangeListener(cb) {
     this.removeListener(CHANGE_EVENT, cb);
   },
+
+  /**
+   * Gets the articles currently in the store.
+   * @returns {store}
+   */
   getList() {
     return store;
   },
-  listInfo() {
-    //
-  },
 });
 
+/**
+ * registers a new payload based on event emmitted
+ * @return {change_event}
+ */
 AppDispatcher.register((payload) => {
   const action = payload.action;
   const newArticle = action.response;

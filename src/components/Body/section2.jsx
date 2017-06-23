@@ -11,98 +11,85 @@ const TwitterIcon = generateShareIcon('twitter');
 const FacebookIcon = generateShareIcon('facebook');
 const GoogleIcon = generateShareIcon('google');
 
-export default class Section2 extends React.Component {
+/**
+ * @export Section2
+ * @class Section2
+ * @extends {React.Component}
+ */
+class Section2 extends React.Component {
   constructor(props) {
     super(props);
     this.state = { data: this.props.data };
   }
   render() {
-    //const obj = this.props.data.list;
-   // const sourceName = obj.source;
-    //const sourceData = this.props.data.list.articles;
     return (
       <div className="container">
-        <hr />
-        <div className="row">
-          <div className="col-md-12">
-            <div className="panel panel-primary panel-table">
-              <div className="panel-heading">
-                <h3 className="panel-title text-center">
-                  The Latest Headlines from {this.props.data.list.source.replace(/-/g, ' ')}
-                </h3>
-              </div>
-              <div className="panel-body">
-                <table className="table table-striped table-bordered table-list">
-                  <thead>
-                    <tr>
-                      <th><i className="fa-2x fa fa-photo" /></th>
-                      <th>Author</th>
-                      <th>Title</th>
-                      <th>Description</th>
-                      <th>Go to Article</th>
-                      <th>Be Social, Share</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {
-                      Object.keys(this.props.data.list.articles).map(key =>
-                      (<tr>
-                        <td>
-                          <img
-                            key={key.toString()}
-                            alt="Not Available"
-                            style={{ width: 205 }}
-                            src={(this.props.data.list.articles[key].urlToImage)}
-                          />
-                        </td>
-                        <td key={[1]}>{(this.props.data.list.articles[key].author)}</td>
-                        <td key={[2]}><b>{(this.props.data.list.articles[key].title)}</b></td>
-                        <td key={[3]}>{(this.props.data.list.articles[key].description)}</td>
-                        <td key={[4]}>
-                          <a
-                            rel="noopener noreferrer"
-                            target="_blank"
-                            href={(this.props.data.list.articles[key].url)}
-                          >
-                          Go To Article
+        <h3 className="page-header text-center capitalize">
+           Headlines from {this.props.data.list.source.replace(/-/g, ' ')}
+        </h3>
+        <div className="flex-row row">
+          {
+          Object.keys(this.props.data.list.articles).map(key => (
+            <div className="col-xs-4 col-lg-4">
+              <div className="thumbnail">
+                <img
+                  style={{ width: 405 }}
+                  src={(this.props.data.list.articles[key].urlToImage)}
+                  alt="not available"
+                />
+                <div className="caption">
+                  <h4 className="flex-text text-primary">
+                    <span className="title">{(this.props.data.list.articles[key].title)}</span>
+                  </h4>
+                  <p className="flex-text">
+                    {(this.props.data.list.articles[key].description)}
+                  </p>
+                </div>
+                <div className="flex-row row">
+                  <div className="col-xs-12">
+                    <div className="social">
+                      <TwitterShareButton
+                        style={{ float: 'left' }}
+                        url={(this.props.data.list.articles[key].url)}
+                        title="I found this interesting"
+                      >
+                        <TwitterIcon size={32} round />
+                      </TwitterShareButton>
+                      <FacebookShareButton
+                        style={{ float: 'left' }}
+                        url={(this.props.data.list.articles[key].url)}
+                        title="I found this interesting"
+                      >
+                        <FacebookIcon size={32} round />
+                      </FacebookShareButton>
+                      <GooglePlusShareButton
+                        style={{ float: 'left' }}
+
+                        url={(this.props.data.list.articles[key].url)}
+                        title="I found this interesting"
+                      >
+                        <GoogleIcon size={32} round className="social" />
+                      </GooglePlusShareButton>
+                    </div>
+                    <a
+                      className="btn btn-primary"
+                      href={(this.props.data.list.articles[key].url)}
+                    >
+                      Go To Article
                         </a>
-                        </td>
-                        <td>
-                          <TwitterShareButton
-                            url={(this.props.data.list.articles[key].url)}
-                            title="I found this interesting"
-                            className=""
-                          >
-                            <TwitterIcon size={32} round />
-                          </TwitterShareButton>
-                          <FacebookShareButton
-                            url={(this.props.data.list.articles[key].url)}
-                            title="I found this interesting"
-                            className=""
-                          >
-                            <FacebookIcon size={32} round />
-                          </FacebookShareButton>
-                          <GooglePlusShareButton
-                            url={(this.props.data.list.articles[key].url)}
-                            title="I found this interesting"
-                            className=""
-                          >
-                            <GoogleIcon size={32} round />
-                          </GooglePlusShareButton>
-                        </td>
-                      </tr>),
-                    )
-                    }
-                  </tbody>
-                </table>
+                  </div>
+                </div>
+
               </div>
             </div>
-          </div>
+            ),
+          )}
         </div>
       </div>
     );
   }
 }
+export default Section2;
 
 Section2.propTypes = {
   data: PropTypes.oneOfType([
