@@ -1,8 +1,3 @@
-html {
-  position: relative;
-  min-height: 100%;
-} 
-
 
 body {
   background-color: #fefdff;
@@ -15,43 +10,6 @@ body {
   color: black;
   margin-bottom: 60px;
   overflow-x: hidden;
-
-}
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 30px;
-}
-
-
-.welcome, .panel-body {
-  background-color: #fefdff;
-}
-
-.navbar {
-  background-color: dodgerblue;
-}
-
-.navbar-brand {
-  color: white;
-}
-
-.search-btn {
-  width: 340px;
-  height: 40px;
-  border: 1px solid dodgerblue;
-  background-color: white;
-  color: black;
-  &:hover {
-    background-color: grey;
-    color: white;
-  }
-}
-
-.col-md-4 {
-  text-align: center;
 }
 
 .btn-primary {
@@ -59,41 +17,15 @@ body {
 }
 .btn-primary:hover{
     background-color:white;
-    color: black
-
+    color: black;
 }
-.user-name:hover:first-of-type {
-     background-color:dodgerblue;
-     color: black 
+
+.col-md-4 {
+  text-align: center;
 }
 .capitalize {
     text-transform: capitalize;   
-  }
-
-.welcome {
-  border: 2px solid whitesmoke;
-  padding: 0 100px 100px 100px;
 }
-
-
-/*
-used to vertically center elements, may need modification if you're not using default sizes.
-*/
-.title{
-  font-weight: bold;
-}
-.thumbnail {
-    margin-bottom: 20px;
-    padding: 0px;
-    border: 4px solid white;
-}
-.thumbnail:hover{
-   border: 4px solid dodgerblue;
-   -moz-box-shadow: 5px 5px 0px #999;
-    -webkit-box-shadow: 5px 5px 0px #999;
-    box-shadow: 2px 2px 2px #999;
-}
-
 .flex-row {
 	display: flex;
 	flex-wrap: wrap;
@@ -118,6 +50,18 @@ used to vertically center elements, may need modification if you're not using de
 	min-width: 0;
 	width: 100%;
 }
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+} 
+
 .logout-btn{
   border: 1px solid black;
   background-color: white;
@@ -126,4 +70,54 @@ used to vertically center elements, may need modification if you're not using de
     background-color: grey;
     color: white;
   }
+}
+
+.navbar {
+  background-color: dodgerblue;
+}
+
+.navbar-brand {
+  color: white;
+}
+
+.search-btn {
+  width: 340px;
+  height: 40px;
+  border: 1px solid dodgerblue;
+  background-color: white;
+  color: black;
+  &:hover {
+    background-color: grey;
+    color: white;
+  }
+}
+
+.title{
+  font-weight: bold;
+}
+
+.thumbnail {
+    margin-bottom: 20px;
+    padding: 0px;
+    border: 4px solid white;
+}
+.thumbnail:hover{
+   border: 4px solid dodgerblue;
+   -moz-box-shadow: 5px 5px 0px #999;
+    -webkit-box-shadow: 5px 5px 0px #999;
+    box-shadow: 2px 2px 2px #999;
+}
+
+.user-name:hover:first-of-type {
+     background-color:dodgerblue;
+     color: black 
+}
+
+.welcome, .panel-body {
+  background-color: #fefdff;
+}
+
+.welcome {
+  border: 2px solid whitesmoke;
+  padding: 0 100px 100px 100px;
 }
