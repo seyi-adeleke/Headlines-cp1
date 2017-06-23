@@ -2,7 +2,9 @@ import React from 'react';
 import { Link } from 'react-router';
 import GoogleLogin from 'react-google-login';
 import action from '../Actions/actions-auth';
+import actionArticles from '../Actions/actions';
 import store from '../store/authStore';
+import SelectNewsSource from './Body/SelectNewsSource.jsx';
 
 /**
  * @export  Homepage
@@ -19,9 +21,11 @@ class Homepage extends React.Component {
     super(props);
     this.state = {
       info: '',
+      source: 'abc-news-au',
     };
     this.googleResponse = this.googleResponse.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.getNews = this.getNews.bind(this);
   }
 
   /**
@@ -31,6 +35,15 @@ class Homepage extends React.Component {
    */
   onChange() {
     this.setState({ info: store.getUser() });
+  }
+ 
+ /**
+  * @memberof Homepage
+  */
+  getNews() {
+    if (this.ref) {
+      actionArticles.receiveArticle(this.state.source, 'top');
+    }
   }
 
   /**
@@ -43,6 +56,12 @@ class Homepage extends React.Component {
     action.getUser(response.profileObj);
     this.setState({
       info: response.profileObj,
+    });
+  }
+
+  newSource(newState) {
+    this.setState({
+      source: newState,
     });
   }
 
@@ -66,10 +85,12 @@ class Homepage extends React.Component {
               onSuccess={this.googleResponse}
               onFailure={this.googleResponseFailure}
             ><i className="fa fa-google-plus" /></GoogleLogin> }
-            { token ? <p className="text-center">Welcome, {user.info.name}</p>
+            { token ? <p className="text-center">Welcome, {user.info.name} </p>
             : null}
+            { token ? <SelectNewsSource ref={(c) => { this.ref = c; }} getSource={(newState, sortAvailable) => this.newSource(newState, sortAvailable)} /> : null }
             { token ? <div className="col-md-4" style={{ marginTop: 20 }}>
               <Link to={'headlines'}><button
+                onClick={this.getNews}
                 className="btn search-btn"
               >
                 <b>Get News</b>
