@@ -4,3 +4,4 @@ coverage/
 __tests__/snapshot-tests/__snapshots__
 .env
 public/public/bundle.js
+.DS_Store
