@@ -26,6 +26,7 @@ body {
 .capitalize {
     text-transform: capitalize;   
 }
+
 .flex-row {
 	display: flex;
 	flex-wrap: wrap;
@@ -55,6 +56,8 @@ body {
   bottom: 0;
   width: 100%;
   height: 30px;
+  text-align:center;
+  margin-left: 1px;
 }
 
 html {
@@ -67,7 +70,7 @@ html {
   background-color: white;
   color: black;
   &:hover {
-    background-color: grey;
+    background-color:#1e90ff;
     color: white;
   }
 }
@@ -87,7 +90,7 @@ html {
   background-color: white;
   color: black;
   &:hover {
-    background-color: grey;
+    background-color: #1e90ff;
     color: white;
   }
 }
@@ -99,13 +102,15 @@ html {
 .thumbnail {
     margin-bottom: 20px;
     padding: 0px;
-    border: 4px solid white;
+    border: 1px solid #999;
+
 }
 .thumbnail:hover{
-   border: 2px solid dodgerblue;
-   -moz-box-shadow: 5px 5px 0px #999;
-    -webkit-box-shadow: 5px 5px 0px #999;
+   -moz-box-shadow: 3px 3px 3px #999;
+    -webkit-box-shadow: 3px 3px 3px #999;
     box-shadow: 3px 3px 3px #999;
+    border: 2px solid dodgerblue;
+
 }
 
 .user-name:hover:first-of-type {
