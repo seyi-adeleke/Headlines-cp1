@@ -72,6 +72,7 @@ class Section2 extends React.Component {
                         <GoogleIcon size={32} round className="social" />
                       </GooglePlusShareButton>
                     </div>
+                    <br />
                     <a
                       className="btn btn-primary"
                       href={(this.props.data.list.articles[key].url)}
