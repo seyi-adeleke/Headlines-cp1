@@ -27,10 +27,11 @@ class Section2 extends React.Component {
         <h3 className="page-header text-center capitalize">
            Headlines from {this.props.data.list.source.replace(/-/g, ' ')}
         </h3>
-        <div className="flex-row row">
-          {
+        <div className="container-fluid">
+          <div className="row flex-row">
+            {
           Object.keys(this.props.data.list.articles).map(key => (
-            <div className="col-xs-4 col-lg-4">
+            <div className="col-lg-4 col-xs-12">
               <div className="thumbnail">
                 <img
                   style={{ width: 405 }}
@@ -41,7 +42,7 @@ class Section2 extends React.Component {
                   <h4 className="flex-text text-primary">
                     <span className="title">{(this.props.data.list.articles[key].title)}</span>
                   </h4>
-                  <p className="flex-text">
+                  <p className="flex-text text-justify">
                     {(this.props.data.list.articles[key].description)}
                   </p>
                 </div>
@@ -84,6 +85,7 @@ class Section2 extends React.Component {
             </div>
             ),
           )}
+          </div>
         </div>
       </div>
     );
