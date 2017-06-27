@@ -6,9 +6,6 @@ import Footer from './Footer.jsx';
 const Layout = props => (
   <div>
     <Header />
-    <br />
-    <br />
-    <br />
     {props.children}
     <Footer />
   </div>
