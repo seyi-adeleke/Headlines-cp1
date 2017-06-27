@@ -1,0 +1,59 @@
+import React from 'react';
+import { Link } from 'react-router';
+
+import SelectNewsSource from './Body/SelectNewsSource.jsx';
+import actionArticles from '../Actions/actions';
+
+
+
+/**
+ * @export  Welcome
+ * @class Welcome
+ * @extends {React.Component}
+ */
+class Welcome extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      source: 'abc-news-au',
+    };
+    this.getNews = this.getNews.bind(this);
+  }
+
+  getNews() {
+    if (this.ref) {
+      actionArticles.receiveDetails(this.state.source, 'top');
+    }
+  }
+  newSource(newState) {
+    this.setState({
+      source: newState,
+    });
+  }
+
+  render() {
+    const token = localStorage.getItem('user');
+    const user = JSON.parse(token);
+    return (
+      <div>
+        <p className="text-center">Welcome, {user.info.name} </p>
+        <SelectNewsSource
+          ref={(c) => { this.ref = c; }}
+          getSource={(newState, sortAvailable) => this.newSource(newState, sortAvailable)}
+        />
+        <div className="col-md-4" style={{ marginTop: 20 }}>
+          <Link to={'headlines'}><button
+            onClick={this.getNews}
+            className="btn search-btn"
+          >
+            <b>Get News</b>
+          </button>
+          </Link>
+        </div>
+      </div>
+    );
+  }
+}
+export default Welcome;
+
+
