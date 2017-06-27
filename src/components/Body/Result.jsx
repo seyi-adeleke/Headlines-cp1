@@ -12,11 +12,11 @@ const FacebookIcon = generateShareIcon('facebook');
 const GoogleIcon = generateShareIcon('google');
 
 /**
- * @export Section2
- * @class Section2
+ * @export Result
+ * @class Result
  * @extends {React.Component}
  */
-class Section2 extends React.Component {
+class Result extends React.Component {
   constructor(props) {
     super(props);
     this.state = { data: this.props.data };
@@ -92,10 +92,11 @@ class Section2 extends React.Component {
     );
   }
 }
-export default Section2;
+export default Result;
 
-Section2.propTypes = {
+Result.propTypes = {
   data: PropTypes.oneOfType([
-    React.PropTypes.obj,
+    React.PropTypes.func,
+    React.PropTypes.object,
   ]).isRequired,
 };
