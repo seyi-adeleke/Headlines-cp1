@@ -12,6 +12,20 @@ import store from '../src/store/authStore.js';
  * @extends {React.Component}
  */
 class Root extends React.Component {
+   /**
+ * @param {any} nextState
+ * @param {method} replace
+ * @param {callback} next
+ * @memberof Root
+ */
+  static checkUserState(nextState, replace, next) {
+    const user = (localStorage.getItem('user'));
+    if (user === null) {
+      replace('/');
+    }
+    next();
+  }
+
   /**
    * Creates an instance of Root.
    * @param {object, methods} props
@@ -21,7 +35,6 @@ class Root extends React.Component {
     super(props);
     this.state = { info: null };
     this.onChange = this.onChange.bind(this);
-    this.checkUserState = this.checkUserState.bind(this);
     this.noAuth = this.noAuth.bind(this);
   }
 
@@ -42,20 +55,8 @@ class Root extends React.Component {
   onChange() {
     this.setState({ info: store.getUser() });
   }
+  
 
-/**
- * @param {any} nextState
- * @param {method} replace
- * @param {callback} next
- * @memberof Root
- */
-  checkUserState(nextState, replace, next) {
-    const user = (localStorage.getItem('user'));
-    if (user === null) {
-      replace('/');
-    }
-    next();
-  }
 
   noAuth(nextState, replace, next) {
     if (this.state.info !== null) {
@@ -63,12 +64,13 @@ class Root extends React.Component {
     }
     next();
   }
+ 
 
   render() {
     return (
       <Router history={browserHistory}>
         <Route path="/" component={Layout} onEnter={this.noAuth}>
-          <Route path="headlines" component={Body} onEnter={this.checkUserState} />
+          <Route path="headlines" component={Body} onEnter={Root.checkUserState} />
           <Route path="*" component={NotFound} />
           <IndexRoute component={HomePage} />
         </Route>
