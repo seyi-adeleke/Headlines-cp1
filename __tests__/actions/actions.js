@@ -1,8 +1,8 @@
 import dispatcher from '../../src/dispatcher';
 import actions from '../../src/Actions/actions';
-import actionServer from '../../src/Actions/actions-server';
-import authActions from '../../src/Actions/actions-auth';
-import logoutActions from '../../src/Actions/action-logout';
+import actionServer from '../../src/Actions/actionServer';
+import authActions from '../../src/Actions/actionsAuth';
+import logoutActions from '../../src/Actions/actionLogout';
 import constants from '../../src/constants/constants';
 
 import Api from '../../src/utils/ArticlesApi';
@@ -16,11 +16,10 @@ newsApiGet.mockReturnValue(Promise.resolve({ data: 'info from api' }));
 const dispatchSpy = jest.spyOn(dispatcher, 'dispatch');
 
 describe('Receive info Actions', () => {
-  test('', () => {
-    actions.receiveArticle();
-    expect(newsApiGet.mock.calls.length).toBe(1);
+  test('should receive details from view', () => {
+    actions.receiveDetails();
   });
-  test('', () => {
+  test('should make a call to the api', () => {
     actionServer.receiveArticle();
     expect(newsApiGet.mock.calls.length).toBe(1);
   });

@@ -17,7 +17,3 @@ describe('NewsSource', () => {
     expect(typeof wrapper.instance().handleChange).toBe('function');
   });
 });
-
-
-
-
