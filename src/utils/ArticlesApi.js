@@ -1,5 +1,5 @@
 import request from 'superagent';
-import ActionServer from '../Actions/actions-server';
+import ActionServer from '../Actions/actionServer';
 
 export default {
   /**

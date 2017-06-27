@@ -1,6 +1,6 @@
 import React from 'react';
 import store from '../../store/authStore';
-import action from '../../Actions/action-logout';
+import action from '../../Actions/actionLogout';
 
 /**
  * @export Nav
@@ -74,6 +74,9 @@ class Nav extends React.Component {
             </div>
           </div>
         </nav>
+        <br />
+        <br />
+        <br />
       </div>
     );
   }
