@@ -30,6 +30,7 @@ class Homepage extends React.Component {
    */
   onChange() {
     this.setState({ info: store.getUser() });
+    return true;
   }
 
   /**
@@ -40,6 +41,7 @@ class Homepage extends React.Component {
     this.setState({
       info: response.profileObj,
     });
+    return true;
   }
 
   render() {

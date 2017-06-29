@@ -40,6 +40,7 @@ class MainBody extends React.Component {
    */
   onChange() {
     this.setState({ info: store.getList(), showResults: true });
+    return true;
   }
 
   /**

@@ -16,6 +16,7 @@ class Welcome extends React.Component {
     super(props);
     this.state = {
       source: 'abc-news-au',
+      user: JSON.parse(localStorage.getItem('user')).info.name,
     };
     this.getNews = this.getNews.bind(this);
   }
@@ -24,19 +25,20 @@ class Welcome extends React.Component {
     if (this.ref) {
       actionArticles.receiveDetails(this.state.source, 'top');
     }
+    return true;
   }
+
   newSource(newState) {
     this.setState({
       source: newState,
     });
+    return true;
   }
 
   render() {
-    const token = localStorage.getItem('user');
-    const user = JSON.parse(token);
     return (
       <div>
-        <p className="text-center">Welcome, {user.info.name} </p>
+        <p className="text-center">Welcome, {this.state.user} </p>
         <SelectNewsSource
           ref={(c) => { this.ref = c; }}
           getSource={(newState, sortAvailable) => this.newSource(newState, sortAvailable)}
