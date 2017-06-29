@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import TextTruncate from 'react-text-truncate';
+
 import { ShareButtons, generateShareIcon } from 'react-share';
 
 const {
@@ -26,11 +28,12 @@ class Result extends React.Component {
       data: this.props.data,
     });
   }
+
   render() {
     return (
       <div className="container">
         <h3 className="page-header text-center capitalize">
-           Headlines from {this.props.data.list.source.replace(/-/g, ' ')}
+        Headlines from {this.props.data.list.source.replace(/-/g, ' ')}
         </h3>
         <div className="container-fluid">
           <div className="row flex-row">
@@ -45,10 +48,21 @@ class Result extends React.Component {
                 />
                 <div className="caption">
                   <h4 className="flex-text text-primary">
-                    <span className="title">{(this.props.data.list.articles[key].title)}</span>
+                    <TextTruncate
+                      className="title"
+                      line={2}
+                      truncateText="…"
+                      text={(this.props.data.list.articles[key].title)}
+
+                    />
                   </h4>
                   <p className="flex-text text-justify">
-                    {(this.props.data.list.articles[key].description)}
+                    <TextTruncate
+                      line={4}
+                      truncateText="…"
+                      text={(this.props.data.list.articles[key].description)}
+
+                    />
                   </p>
                 </div>
                 <div className="flex-row row">

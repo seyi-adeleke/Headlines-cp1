@@ -36,7 +36,7 @@ class MainBody extends React.Component {
   /**
    * Listens for an onChange event and sets the state
    * @memberof Section1
-   * @returns {void}
+   * @returns {true}
    */
   onChange() {
     this.setState({ info: store.getList(), showResults: true });
