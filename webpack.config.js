@@ -1,11 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const env = require('node-env-file');
+//const env = require('node-env-file');
 
 const webpack = require('webpack');
 
-env(__dirname + '/.env');
+//env(__dirname + '/.env');
 
 const port = 3000;
 
