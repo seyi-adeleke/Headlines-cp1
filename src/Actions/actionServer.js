@@ -5,6 +5,7 @@ export default {
   /**
    * Passes the Api response to the appropriate dispatcher
    * @param {object} response
+   * @return {void}
    */
   receiveArticle(response) {
     AppDispatcher.handleServerAction({

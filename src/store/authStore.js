@@ -11,17 +11,42 @@ const CHANGE_EVENT = 'change';
 const store = {
   user: null,
 };
-
+/**
+ * @class AuthStoreClass
+ * @extends {EventEmitter}
+ */
 class AuthStoreClass extends EventEmitter {
+  /**
+   * @param {function} cb
+   * @memberof AuthStoreClass
+   * @return {void}
+   */
   addChangeListener(cb) {
     this.on(CHANGE_EVENT, cb);
   }
+  /**
+   * @param {callback} cb
+   * @memberof AuthStoreClass
+   * @return {void}
+   */
   removeChangeListener(cb) {
     this.removeListener(CHANGE_EVENT, cb);
   }
+
+  /**
+   * @description Returns the user in the store
+   * @returns {object} store
+   * @memberof AuthStoreClass
+   */
   getUser() {
     return store;
   }
+
+  /**
+   * @description Removes the user in the store.
+   * @returns {object} store
+   * @memberof AuthStoreClass
+   */
   removeUser() {
     return store;
   }
