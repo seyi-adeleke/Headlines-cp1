@@ -26,7 +26,7 @@ class MainBody extends React.Component {
 
   /**
    * Adds an event listener on component mount.
-   * @memberof Section1
+   * @memberof MainBody
    * @returns {void}
    */
   componentDidMount() {
@@ -35,7 +35,7 @@ class MainBody extends React.Component {
 
   /**
    * Listens for an onChange event and sets the state
-   * @memberof Section1
+   * @memberof MainBody
    * @returns {true}
    */
   onChange() {
@@ -45,7 +45,7 @@ class MainBody extends React.Component {
 
   /**
    * sends data from child components to the action
-   * @memberof Section1
+   * @memberof MainBody
    * @returns {void}
    */
   getNews() {
@@ -55,7 +55,7 @@ class MainBody extends React.Component {
   /**
    * @param {string} newState: the name of a new source
    * @param {array} sortAvailable: an array of available sort options.
-   * @memberof Section1
+   * @memberof MainBody
    * @returns {void}
    */
   newSource(newState, sortAvailable) {
@@ -64,7 +64,7 @@ class MainBody extends React.Component {
 
   /**
    * @param {any} newState: the new sort value
-   * @memberof Section1
+   * @memberof MainBody
    * @returns {void}
    */
   newSort(newState) {
@@ -73,7 +73,7 @@ class MainBody extends React.Component {
 
   /**
    * @returns component
-   * @memberof Section1
+   * @memberof MainBody
    */
   render() {
     return (

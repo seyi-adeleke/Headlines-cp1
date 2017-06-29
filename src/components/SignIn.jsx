@@ -56,7 +56,7 @@ class SignIn extends React.Component {
       <div>
         <p>Sign in to get started</p>
         <GoogleLogin
-          clientId="983844901383-e2l2k4ss3biu09vkjsoskmbnvpuriqbk.apps.googleusercontent.com"
+          clientId={process.env.GOOGLE_ID}
           buttonText="Sign In"
           onSuccess={this.googleResponse}
           onFailure={this.googleResponseFailure}
