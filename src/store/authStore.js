@@ -1,10 +1,10 @@
-import ObjectAssign from 'object-assign';
 import AppDispatcher from '../dispatcher';
 import Constants from '../constants/constants';
 
 const EventEmitter = require('events').EventEmitter;
 
 const CHANGE_EVENT = 'change';
+
 /**
  * {object}
  */
@@ -12,23 +12,22 @@ const store = {
   user: null,
 };
 
-/**
- * creates a clone of auth store
- */
-const AuthStore = ObjectAssign({}, EventEmitter.prototype, {
+class AuthStoreClass extends EventEmitter {
   addChangeListener(cb) {
     this.on(CHANGE_EVENT, cb);
-  },
+  }
   removeChangeListener(cb) {
     this.removeListener(CHANGE_EVENT, cb);
-  },
+  }
   getUser() {
     return store;
-  },
+  }
   removeUser() {
     return store;
-  },
-});
+  }
+}
+
+const AuthStore = new AuthStoreClass();
 
 /**
  * registers a new payload based on event emmitted

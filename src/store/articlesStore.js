@@ -1,4 +1,3 @@
-import ObjectAssign from 'object-assign';
 import AppDispatcher from '../dispatcher';
 import Constants from '../constants/constants';
 
@@ -14,25 +13,20 @@ const store = {
   list: null,
 };
 
-/**
- * creates a clone of article store
- */
-const ArticleStore = ObjectAssign({}, EventEmitter.prototype, {
+class ArticleStoreClass extends EventEmitter {
   addChangeListener(cb) {
     this.on(CHANGE_EVENT, cb);
-  },
+  }
   removeChangeListener(cb) {
     this.removeListener(CHANGE_EVENT, cb);
-  },
-
-  /**
-   * Gets the articles currently in the store.
-   * @returns {store}
-   */
+  }
   getList() {
     return store;
-  },
-});
+  }
+}
+
+
+const ArticleStore = new ArticleStoreClass();
 
 /**
  * registers a new payload based on event emmitted
@@ -50,4 +44,5 @@ AppDispatcher.register((payload) => {
       return true;
   }
 });
+
 export default ArticleStore;

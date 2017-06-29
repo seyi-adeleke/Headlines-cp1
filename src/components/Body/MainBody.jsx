@@ -1,19 +1,23 @@
 import React from 'react';
 import SelectNewsSource from './SelectNewsSource.jsx';
 import SelectSortOrder from './SelectSortOrder.jsx';
-import Section2 from './section2.jsx';
+import Result from './Result.jsx';
 import store from '../../store/articlesStore';
 import action from '../../Actions/actions';
 
 /**
- * @export Section1
- * @class Section1
+ * @export MainBody
+ * @class MainBody
  * @extends {React.Component}
  */
-class Section1 extends React.Component {
+class MainBody extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { source: 'abc-news-au', sortby: ['top'], sort: '', info: '', showResults: false };
+    this.state = { source: 'abc-news-au',
+      sortby: ['top'],
+      sort: '',
+      info: '',
+      showResults: false };
     this.newSource = this.newSource.bind(this);
     this.newSort = this.newSort.bind(this);
     this.getNews = this.getNews.bind(this);
@@ -36,6 +40,7 @@ class Section1 extends React.Component {
    */
   onChange() {
     this.setState({ info: store.getList(), showResults: true });
+    return true;
   }
 
   /**
@@ -44,7 +49,7 @@ class Section1 extends React.Component {
    * @returns {void}
    */
   getNews() {
-    action.receiveArticle(this.state.source, this.state.sort);
+    action.receiveDetails(this.state.source, this.state.sort);
   }
 
   /**
@@ -97,9 +102,9 @@ class Section1 extends React.Component {
             </div>
           </div>
         </div>
-        {this.state.showResults ? <Section2 data={this.state.info} /> : null}
+        {this.state.showResults ? <Result data={this.state.info} /> : null}
       </div>
     );
   }
 }
-export default Section1;
+export default MainBody;

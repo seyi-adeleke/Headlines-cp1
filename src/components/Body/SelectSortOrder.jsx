@@ -24,9 +24,6 @@ class SelectSortOrder extends React.Component {
    * @memberof SelectSortOrder
    */
   handleChange(event) {
-    this.setState({
-      sort: event.target.value,
-    });
     this.props.getSort(event.target.value);
   }
 
@@ -58,6 +55,6 @@ export default SelectSortOrder;
 SelectSortOrder.propTypes = {
   getSort: PropTypes.func.isRequired,
   sortByAvailable: PropTypes.oneOfType([
-    React.PropTypes.obj,
+    React.PropTypes.array,
   ]).isRequired,
 };

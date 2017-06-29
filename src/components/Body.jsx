@@ -1,14 +1,12 @@
 import React from 'react';
-import Section1 from './Body/Section1.jsx';
+import MainBody from './Body/MainBody.jsx';
 
 /**
  * Creates a stateless component to encapsulate all main body components
  */
 const Body = () => (
   <div>
-    <Section1 />
-    <br />
-    <br />
+    <MainBody />
   </div>
 );
 export default Body;

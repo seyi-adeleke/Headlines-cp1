@@ -1,16 +1,20 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { shallow } from 'enzyme';
+import Homepage from '../../src/components/HomePage';
 
-import Homepage from '../../src/components/HomePage.jsx';
+describe('Welcome', () => {
+  const wrapper = shallow(<Homepage />);
+  const responseObject = {
+    user: 'seyi',
+    email: 'seyi@yahoo.com',
+  };
+  const response = (wrapper.instance().response(responseObject));
+  it('the response function should exist', () => {
+    expect(response).toBeTruthy();
+  });
 
-jest.mock('../../src/components/HomePage.jsx');
-
-
-describe('Homepage Component', () => {
-  it('should match the Homepage snapshot', () => {
-    const component = mount(<Homepage />);
-    const tree = toJson(component);
-    expect(tree).toMatchSnapshot();
+  const onChange = (wrapper.instance().onChange());
+  it('the onChange function should exist', () => {
+    expect(onChange).toBeTruthy();
   });
 });

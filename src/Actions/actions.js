@@ -9,7 +9,7 @@ export default{
    * @param {string} sort
    * @return {void}
    */
-  receiveArticle(source, sort) {
+  receiveDetails(source, sort) {
     ArticlesApi.get(source, sort);
     AppDispatcher.handleViewAction({
       actionType: Constants.NEW_NEWS,

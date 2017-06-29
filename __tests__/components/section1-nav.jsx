@@ -2,13 +2,13 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 
-import section1 from '../../src/components/Body/Section1.jsx';
+import section from '../../src/components/Body/MainBody.jsx';
 
 describe('Section', () => {
-  const wrapper = mount(<section1 />);
+  const wrapper = mount(<section />);
   it('renders correctly', () => {
     const rendered = renderer.create(
-      <section1 />,
+      <section />,
     );
   });
 });
