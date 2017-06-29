@@ -19,7 +19,12 @@ const GoogleIcon = generateShareIcon('google');
 class Result extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { data: this.props.data };
+    this.state = {};
+  }
+  componentWillMount() {
+    this.setState({
+      data: this.props.data,
+    });
   }
   render() {
     return (

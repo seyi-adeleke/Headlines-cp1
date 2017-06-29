@@ -39,6 +39,7 @@ class SignIn extends React.Component {
   googleResponse(response) {
     action.getUser(response.profileObj);
     this.props.getResponse(response);
+    return true;
   }
 
   /**

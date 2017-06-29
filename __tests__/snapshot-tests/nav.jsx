@@ -11,5 +11,4 @@ describe('Nav Component', () => {
     const tree = toJson(component);
     expect(tree).toMatchSnapshot();
   });
- 
 });

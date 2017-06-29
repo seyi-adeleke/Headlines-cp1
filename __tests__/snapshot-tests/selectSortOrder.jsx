@@ -10,14 +10,14 @@ describe('SelectNewsSource state', () => {
   const wrapper = shallow(<SelectSortOrder />);
   it('renders correctly', () => {
     const rendered = renderer.create(
-     <SelectSortOrder />,
+      <SelectSortOrder />,
     );
     expect(rendered.toJSON()).toMatchSnapshot();
   });
 });
 
 describe('sort', () => {
-  const wrapper = shallow(<SelectSortOrder />);
+  const wrapper = mount(<SelectSortOrder />);
   it('should have function  defined', () => {
     expect(typeof wrapper.instance().handleChange).toBe('function');
   });
