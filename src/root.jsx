@@ -6,38 +6,71 @@ import HomePage from './components/HomePage.jsx';
 import NotFound from './components/NotFound.jsx';
 import store from '../src/store/authStore.js';
 
-export default class Root extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { info: null };
-    this.onChange = this.onChange.bind(this);
-    this.checkUserState = this.checkUserState.bind(this);
-    this.noAuth = this.noAuth.bind(this);
-  }
-  componentDidMount() {
-    store.addChangeListener(this.onChange);
-  }
-  onChange() {
-    this.setState({ info: store.getUser() });
-  }
-  checkUserState(nextState, replace, next) {
+/**
+ * @export Root
+ * @class Root
+ * @extends {React.Component}
+ */
+class Root extends React.Component {
+   /**
+ * @param {any} nextState
+ * @param {method} replace
+ * @param {callback} next
+ * @memberof Root
+ */
+  static checkUserState(nextState, replace, next) {
     const user = (localStorage.getItem('user'));
     if (user === null) {
       replace('/');
     }
     next();
   }
+
+  /**
+   * Creates an instance of Root.
+   * @param {object, methods} props
+   * @memberof Root
+   */
+  constructor(props) {
+    super(props);
+    this.state = { info: null };
+    this.onChange = this.onChange.bind(this);
+    this.noAuth = this.noAuth.bind(this);
+  }
+
+  /**
+   * adds a change listener on component render
+   * @memberof Root
+   * @returns {void}
+   */
+
+  componentDidMount() {
+    store.addChangeListener(this.onChange);
+  }
+
+  /**
+   * @memberof Root
+   * @returns {void}
+   */
+  onChange() {
+    this.setState({ info: store.getUser() });
+  }
+  
+
+
   noAuth(nextState, replace, next) {
     if (this.state.info !== null) {
       replace('/headlines');
     }
     next();
   }
+ 
+
   render() {
     return (
       <Router history={browserHistory}>
         <Route path="/" component={Layout} onEnter={this.noAuth}>
-          <Route path="headlines" component={Body} onEnter={this.checkUserState} />
+          <Route path="headlines" component={Body} onEnter={Root.checkUserState} />
           <Route path="*" component={NotFound} />
           <IndexRoute component={HomePage} />
         </Route>
@@ -45,3 +78,5 @@ export default class Root extends React.Component {
     );
   }
 }
+
+export default Root;

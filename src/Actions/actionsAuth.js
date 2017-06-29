@@ -2,10 +2,16 @@ import AppDispatcher from '../dispatcher';
 import Constants from '../constants/constants';
 
 export default{
-  logout(info) {
+  /**
+   * Retrieves User data
+   * @param {object} info: the users data
+   * @returns {void}
+   */
+  getUser(info) {
     AppDispatcher.handleServerAction({
-      actionType: Constants.LOGOUT,
+      actionType: Constants.AUTH,
       info,
     });
   },
 };
+

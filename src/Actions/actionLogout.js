@@ -1,12 +1,15 @@
 import AppDispatcher from '../dispatcher';
 import Constants from '../constants/constants';
 
+/**
+ * Passes the info to the auth store
+ * @param {object} info - The information of the current user.
+ */
 export default{
-  getUser(info) {
+  logout(info) {
     AppDispatcher.handleServerAction({
-      actionType: Constants.AUTH,
+      actionType: Constants.LOGOUT,
       info,
     });
   },
 };
-

@@ -1,34 +1,80 @@
 import React from 'react';
 import SelectNewsSource from './SelectNewsSource.jsx';
 import SelectSortOrder from './SelectSortOrder.jsx';
-import Section2 from './section2.jsx';
+import Result from './Result.jsx';
 import store from '../../store/articlesStore';
 import action from '../../Actions/actions';
 
-export default class Section1 extends React.Component {
+/**
+ * @export MainBody
+ * @class MainBody
+ * @extends {React.Component}
+ */
+class MainBody extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { source: 'abc-news-au', sortby: ['top'], sort: '', info: '', showResults: false };
+    this.state = { source: 'abc-news-au',
+      sortby: ['top'],
+      sort: '',
+      info: '',
+      showResults: false };
     this.newSource = this.newSource.bind(this);
     this.newSort = this.newSort.bind(this);
     this.getNews = this.getNews.bind(this);
     this.onChange = this.onChange.bind(this);
   }
+
+  /**
+   * Adds an event listener on component mount.
+   * @memberof Section1
+   * @returns {void}
+   */
   componentDidMount() {
     store.addChangeListener(this.onChange);
   }
+
+  /**
+   * Listens for an onChange event and sets the state
+   * @memberof Section1
+   * @returns {void}
+   */
   onChange() {
     this.setState({ info: store.getList(), showResults: true });
+    return true;
   }
+
+  /**
+   * sends data from child components to the action
+   * @memberof Section1
+   * @returns {void}
+   */
   getNews() {
-    action.receiveArticle(this.state.source, this.state.sort);
+    action.receiveDetails(this.state.source, this.state.sort);
   }
+
+  /**
+   * @param {string} newState: the name of a new source
+   * @param {array} sortAvailable: an array of available sort options.
+   * @memberof Section1
+   * @returns {void}
+   */
   newSource(newState, sortAvailable) {
     this.setState({ source: newState, sortby: sortAvailable });
   }
+
+  /**
+   * @param {any} newState: the new sort value
+   * @memberof Section1
+   * @returns {void}
+   */
   newSort(newState) {
     this.setState({ sort: newState });
   }
+
+  /**
+   * @returns component
+   * @memberof Section1
+   */
   render() {
     return (
       <div>
@@ -56,8 +102,9 @@ export default class Section1 extends React.Component {
             </div>
           </div>
         </div>
-        {this.state.showResults ? <Section2 data={this.state.info} /> : null}
+        {this.state.showResults ? <Result data={this.state.info} /> : null}
       </div>
     );
   }
 }
+export default MainBody;

@@ -1,33 +1,37 @@
-import ObjectAssign from 'object-assign';
 import AppDispatcher from '../dispatcher';
 import Constants from '../constants/constants';
 
 const EventEmitter = require('events').EventEmitter;
 
-
 const CHANGE_EVENT = 'change';
 
+/**
+ * {object}
+ * Stores a list of articles
+ */
 const store = {
   list: null,
 };
 
-
-const ArticleStore = ObjectAssign({}, EventEmitter.prototype, {
-
+class ArticleStoreClass extends EventEmitter {
   addChangeListener(cb) {
     this.on(CHANGE_EVENT, cb);
-  },
+  }
   removeChangeListener(cb) {
     this.removeListener(CHANGE_EVENT, cb);
-  },
+  }
   getList() {
     return store;
-  },
-  listInfo() {
-    //
-  },
-});
+  }
+}
 
+
+const ArticleStore = new ArticleStoreClass();
+
+/**
+ * registers a new payload based on event emmitted
+ * @return {change_event}
+ */
 AppDispatcher.register((payload) => {
   const action = payload.action;
   const newArticle = action.response;
@@ -40,4 +44,5 @@ AppDispatcher.register((payload) => {
       return true;
   }
 });
+
 export default ArticleStore;
