@@ -64,7 +64,10 @@ html {
   position: relative;
   min-height: 100%;
 } 
-
+.image-thumbnail{
+  max-width: 405px !important;
+  max-height: 405px !important;
+}
 .logout-btn{
   border: 1px solid black;
   background-color: white;

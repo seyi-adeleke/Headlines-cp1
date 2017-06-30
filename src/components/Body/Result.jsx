@@ -42,7 +42,7 @@ class Result extends React.Component {
             <div className="col-lg-4 col-xs-12">
               <div className="thumbnail">
                 <img
-                  style={{ width: 405 }}
+                  className="image-thumbnail"
                   src={(this.props.data.list.articles[key].urlToImage)}
                   alt="not available"
                 />
