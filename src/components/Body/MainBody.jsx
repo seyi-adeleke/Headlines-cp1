@@ -33,6 +33,10 @@ class MainBody extends React.Component {
     store.addChangeListener(this.onChange);
   }
 
+  componentWillUnmount() {
+    store.removeChangeListener(this.onChange);
+  }
+
   /**
    * Listens for an onChange event and sets the state
    * @memberof MainBody

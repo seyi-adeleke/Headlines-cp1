@@ -30,7 +30,14 @@ class Result extends React.Component {
   }
 
   render() {
-    return (
+    if(this.props.data.list === undefined){
+      return (
+        <div className="text-center" style={{ marginTop: 50}}>
+         <div className="loader"></div>
+      </div>)
+    }
+    else{
+       return (
       <div className="container">
         <h3 className="page-header text-center capitalize">
         Headlines from {this.props.data.list.source.replace(/-/g, ' ')}
@@ -110,6 +117,7 @@ class Result extends React.Component {
       </div>
     );
   }
+    }
 }
 export default Result;
 
