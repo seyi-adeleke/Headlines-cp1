@@ -59,7 +59,9 @@ class Root extends React.Component {
 
 
   noAuth(nextState, replace, next) {
-    if (this.state.info !== null) {
+    const user = (localStorage.getItem('user'));
+
+    if (user != null) {
       replace('/headlines');
     }
     next();
@@ -69,10 +71,10 @@ class Root extends React.Component {
   render() {
     return (
       <Router history={browserHistory}>
-        <Route path="/" component={Layout} onEnter={this.noAuth}>
+        <Route path="/" component={Layout} >
           <Route path="headlines" component={Body} onEnter={Root.checkUserState} />
           <Route path="*" component={NotFound} />
-          <IndexRoute component={HomePage} />
+          <IndexRoute component={HomePage} onEnter={this.noAuth}/>
         </Route>
       </Router>
     );
