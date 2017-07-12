@@ -61,21 +61,23 @@ AppDispatcher.register((payload) => {
   const action = payload.action;
   const newUser = action;
   switch (action.actionType) {
-    case Constants.AUTH:
-      store.user = newUser;
+  case Constants.AUTH:
+    store.user = newUser;
+    AuthStore.emit(CHANGE_EVENT);
+    localStorage.setItem('user', JSON.stringify(store.user));
+    break;
+  case Constants.LOGOUT:
+    localStorage.removeItem('user');
+    localStorage.removeItem('key');
+
+    window.location = '/';
+    if (action) {
+      store.user = null;
       AuthStore.emit(CHANGE_EVENT);
-      localStorage.setItem('user', JSON.stringify(store.user));
-      break;
-    case Constants.LOGOUT:
-      localStorage.removeItem('user');
-      window.location = '/';
-      if (action) {
-        store.user = null;
-        AuthStore.emit(CHANGE_EVENT);
-      }
-      break;
-    default:
-      return true;
+    }
+    break;
+  default:
+    return true;
   }
 });
 

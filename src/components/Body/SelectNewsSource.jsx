@@ -34,9 +34,12 @@ class SelectNewsSource extends React.Component {
    * handles change events
    * @param {array} event
    * @memberof SelectNewsSource
+   * @return {true}
    */
   handleChange(event) {
     if (event) {
+      localStorage.setItem('key', event.id);
+
       this.setState({
         source: event,
       });
@@ -54,7 +57,6 @@ class SelectNewsSource extends React.Component {
       <div>
         <label htmlFor>Source</label>
         <div className="col-sm-12">
-
           <Select
             onChange={this.handleChange}
             labelKey="name"

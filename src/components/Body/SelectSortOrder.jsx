@@ -7,11 +7,6 @@ import PropTypes from 'prop-types';
  * @extends {React.Component}
  */
 class SelectSortOrder extends React.Component {
-  /**
-   * Creates an instance of SelectSortOrder.
-   * @param {function, object} props
-   * @memberof SelectSortOrder
-   */
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -57,4 +52,8 @@ SelectSortOrder.propTypes = {
   sortByAvailable: PropTypes.oneOfType([
     React.PropTypes.array,
   ]).isRequired,
+};
+
+SelectSortOrder.defaultProps = {
+  sortByAvailable: [],
 };

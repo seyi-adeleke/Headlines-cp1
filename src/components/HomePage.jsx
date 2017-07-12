@@ -1,7 +1,7 @@
 import React from 'react';
 import store from '../store/authStore';
-import Welcome from './Welcome.jsx';
-import SignIn from './SignIn.jsx';
+import Welcome from './Homepage/Welcome.jsx';
+import SignIn from './Homepage/SignIn.jsx';
 
 /**
  * @export  Homepage
@@ -9,18 +9,13 @@ import SignIn from './SignIn.jsx';
  * @extends {React.Component}
  */
 class Homepage extends React.Component {
-  /**
-   * Creates an instance of Homepage.
-   * @param {object, function} props
-   * @memberof Homepage
-   */
   constructor(props) {
     super(props);
     this.state = {
       info: '',
-      source: 'abc-news-au',
     };
     this.onChange = this.onChange.bind(this);
+    this.handleResponse = this.handleResponse.bind(this);
   }
 
   /**
@@ -36,6 +31,7 @@ class Homepage extends React.Component {
   /**
    * @param {any} response
    * @memberof Homepage
+   * @return {true}
    */
   response(response) {
     this.setState({
@@ -44,10 +40,14 @@ class Homepage extends React.Component {
     return true;
   }
 
+  handleResponse(response) {
+    this.response(response);
+  }
+
   render() {
     const token = localStorage.getItem('user');
     return (
-      <div className="welcome">
+      <div className="welcome" style={{ marginTop: 100 }}>
         <form>
           <div className="text-center">
             <div className="text-center">
@@ -55,7 +55,7 @@ class Homepage extends React.Component {
                 <i className="fa fa-newspaper-o" /> HEADLINES</em></h2>
               <p>Get the latest News from your favourite blogs..</p>
             </div>
-            { token ? false : <SignIn getResponse={response => this.response(response)} /> }
+            { token ? false : <SignIn getResponse={this.handleResponse} /> }
             { token ? <Welcome /> : null }
           </div>
         </form>

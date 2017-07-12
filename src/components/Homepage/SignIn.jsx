@@ -3,7 +3,7 @@ import GoogleLogin from 'react-google-login';
 import AlertContainer from 'react-alert';
 import PropTypes from 'prop-types';
 
-import action from '../Actions/actionsAuth';
+import action from '../../Actions/actionsAuth';
 
 /**
  * @export  SignIn
@@ -11,11 +11,6 @@ import action from '../Actions/actionsAuth';
  * @extends {React.Component}
  */
 class SignIn extends React.Component {
-  /**
-   * Creates an instance of SignIn.
-   * @param {object, function} props
-   * @memberof SignIn
-   */
   constructor(props) {
     super(props);
     this.googleResponse = this.googleResponse.bind(this);
@@ -32,9 +27,9 @@ class SignIn extends React.Component {
 
   /**
    *  Parses the google authentiction request
-   *  @param {object}
+   *  @param {response} response
    *  @memberof SignIn
-   *  @returns {void}
+   *  @returns {true}
    */
   googleResponse(response) {
     action.getUser(response.profileObj);
@@ -72,4 +67,3 @@ export default SignIn;
 SignIn.propTypes = {
   getResponse: PropTypes.func.isRequired,
 };
-
