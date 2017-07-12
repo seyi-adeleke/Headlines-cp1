@@ -1,5 +1,6 @@
 import AppDispatcher from '../dispatcher';
 import Constants from '../constants/constants';
+import { browserHistory } from 'react-router';
 
 const EventEmitter = require('events').EventEmitter;
 
@@ -69,8 +70,7 @@ AppDispatcher.register((payload) => {
   case Constants.LOGOUT:
     localStorage.removeItem('user');
     localStorage.removeItem('key');
-
-    window.location = '/';
+    browserHistory.push('/');
     if (action) {
       store.user = null;
       AuthStore.emit(CHANGE_EVENT);
