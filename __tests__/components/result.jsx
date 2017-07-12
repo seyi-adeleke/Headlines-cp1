@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 
-import Result from '../../src/components/Body/Result';
+import Result from '../../src/components/Body/Result.jsx';
 
 describe('Result', () => {
   const info = {

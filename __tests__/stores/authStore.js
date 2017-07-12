@@ -21,5 +21,3 @@ describe(' auth Store has correct methods', () => {
     });
   });
 });
-
-

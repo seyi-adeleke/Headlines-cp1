@@ -2,9 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import Welcome from '../../src/components/Welcome.jsx';
-
-
+import Welcome from '../../src/components/Homepage/Welcome.jsx';
 
 describe('Welcome Component', () => {
   localStorage.setItem('user', JSON.stringify({ info: {

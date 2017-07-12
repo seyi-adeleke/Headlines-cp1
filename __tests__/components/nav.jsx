@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Nav from '../../src/components/Header/Nav';
+import Nav from '../../src/components/Header/Nav.jsx';
 
 describe('Nav state', () => {
   const wrapper = mount(<Nav />);
