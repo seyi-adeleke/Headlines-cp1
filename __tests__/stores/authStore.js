@@ -2,7 +2,7 @@ import AuthStore from '../../src/store/authStore';
 import dispatcher from '../../src/dispatcher';
 import constants from '../../src/constants/constants';
 
-describe(' auth Store has correct methods', () => {
+describe('Store', () => {
   test('initializes with no user', () => {
     expect(AuthStore.getUser().user).toBeDefined();
   });

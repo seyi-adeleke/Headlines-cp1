@@ -75,7 +75,7 @@ class Result extends React.Component {
                   <div className="col-xs-12">
                     <div className="social">
                       <TwitterShareButton
-                        style={{ float: 'left', marginLeft: 120 }}
+                        style={{ float: 'left', marginLeft: '35%' }}
                         url={(articlesList.list.articles[key].url)}
                         title="I found this interesting"
                       >
