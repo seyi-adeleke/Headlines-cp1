@@ -21,6 +21,8 @@ class MainBody extends React.Component {
     this.newSort = this.newSort.bind(this);
     this.getNews = this.getNews.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.handleSourceResponse = this.handleSourceResponse.bind(this);
+    this.handleSortResponse = this.handleSortResponse.bind(this);
   }
 
   /**
@@ -74,7 +76,22 @@ class MainBody extends React.Component {
   newSort(newState) {
     this.setState({ sort: newState });
   }
+  /**
+   * @param {string} source news source
+   * @param {array} sortAvailable sort options
+   * @memberof MainBody
+   */
+  handleSourceResponse(source, sortAvailable) {
+    this.newSource(source, sortAvailable);
+  }
 
+  /**
+   * @param {string} sort sort option
+   * @memberof MainBody
+   */
+  handleSortResponse(sort) {
+    this.newSort(sort);
+  }
   /**
    * @returns component
    * @memberof MainBody
@@ -87,13 +104,13 @@ class MainBody extends React.Component {
             <div className="col-md-4">
               <SelectNewsSource
                 className="newsSource"
-                getSource={(newState, sortAvailable) => this.newSource(newState, sortAvailable)}
+                getSource={this.handleSourceResponse}
               />
             </div>
             <div className="col-md-4">
               <SelectSortOrder
                 sortByAvailable={this.state.sortby}
-                getSort={newState => this.newSort(newState)}
+                getSort={this.handleSortResponse}
               />
             </div>
             <div className="col-md-4" style={{ marginTop: 20 }}>

@@ -1,6 +1,7 @@
+import { browserHistory } from 'react-router';
+
 import AppDispatcher from '../dispatcher';
 import Constants from '../constants/constants';
-import { browserHistory } from 'react-router';
 
 const EventEmitter = require('events').EventEmitter;
 

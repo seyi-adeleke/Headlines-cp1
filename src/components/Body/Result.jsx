@@ -125,7 +125,12 @@ Result.propTypes = {
     React.PropTypes.func,
     React.PropTypes.object,
   ]).isRequired,
+  data: PropTypes.oneOfType([
+    React.PropTypes.func,
+    React.PropTypes.object,
+  ]).isRequired,
 };
 Result.defaultProps = {
   articles: {},
+  data: {},
 };

@@ -69,7 +69,8 @@ class Nav extends React.Component {
                     <span>{ user.info.givenName } </span>
                     <a><button type="button"
                                onClick={this.logUserOut}
-                               className="btn logout-btn navbar-btn">Logout</button></a>
+                               className="btn logout-btn navbar-btn">Logout
+                               </button></a>
                   </ul>
                     : null}
               </ul>

@@ -17,6 +17,8 @@ class Welcome extends React.Component {
       user: JSON.parse(localStorage.getItem('user')).info.name,
     };
     this.getNews = this.getNews.bind(this);
+    this.handleSource = this.handleSource.bind(this);
+    this.handleRef = this.handleRef.bind(this);
   }
   /**
    * passes the source value to the action
@@ -38,13 +40,19 @@ class Welcome extends React.Component {
     return true;
   }
 
+  handleSource(source, sortAvailable) {
+    this.newSource(source, sortAvailable);
+  }
+  handleRef(ref) {
+    this.ref = ref;
+  }
   render() {
     return (
       <div>
         <p className="text-center">Welcome, {this.state.user} </p>
         <SelectNewsSource
-          ref={(c) => { this.ref = c; }}
-          getSource={(newState, sortAvailable) => this.newSource(newState, sortAvailable)}
+          ref={this.handleRef}
+          getSource={this.handleSource}
         />
         {this.state.source ?
         <div className="col-md-4" style={{ marginTop: 20 }}>

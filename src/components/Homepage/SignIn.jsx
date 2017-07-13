@@ -15,7 +15,7 @@ class SignIn extends React.Component {
     super(props);
     this.googleResponse = this.googleResponse.bind(this);
     this.googleResponseFailure = this.googleResponseFailure.bind(this);
-
+    this.handleRef = this.handleRef.bind(this);
     this.showAlert = () => {
       this.msg.error('Sorry, there was an error.', {
         theme: 'light',
@@ -46,6 +46,10 @@ class SignIn extends React.Component {
     this.showAlert();
   }
 
+  handleRef(alert) {
+    this.msg = alert;
+  }
+
   render() {
     return (
       <div>
@@ -56,7 +60,7 @@ class SignIn extends React.Component {
           onSuccess={this.googleResponse}
           onFailure={this.googleResponseFailure}
         ><i className="fa fa-google-plus" />
-          <AlertContainer ref={a => this.msg = a} />
+          <AlertContainer ref={this.handleRef} />
         </GoogleLogin>
       </div>
     );

@@ -21,7 +21,8 @@ class SelectNewsSource extends React.Component {
    * @memberof SelectNewsSource
    */
   componentDidMount() {
-    this.serverRequest = request.get('https://newsapi.org/v1/sources?language=en')
+    const sources = 'https://newsapi.org/v1/sources?language=en';
+    this.serverRequest = request.get(sources)
     .end((error, response) => {
       this.setState({
         newsSources: response.body.sources,
