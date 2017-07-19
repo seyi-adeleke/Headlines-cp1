@@ -8,11 +8,6 @@ import action from '../../Actions/actionLogout';
  * @extends {React.Component}
  */
 class Nav extends React.Component {
-  /**
-   * Creates an instance of Nav.
-   * @param {function, object} props
-   * @memberof Nav
-   */
   constructor(props) {
     super(props);
     this.state = {
@@ -55,7 +50,9 @@ class Nav extends React.Component {
         <nav className="navbar navbar-tv-tracker navbar-fixed-top">
           <div className="container">
             <div className="navbar-header">
-              <a className="navbar-brand" href="/"><b><i style={{ color: 'black' }} className="fa fa-newspaper-o" /> HEADLINES</b></a>
+              <a className="navbar-brand" href="/">
+              <b><i style={{ color: 'black' }}
+                    className="fa fa-newspaper-o" /> HEADLINES</b></a>
             </div>
             <div className="collapse navbar-collapse" id="navbar">
               <ul className="nav navbar-nav navbar-right">
@@ -64,10 +61,16 @@ class Nav extends React.Component {
                     <img
                       alt="not available"
                       src={user.info.imageUrl}
-                      style={{ marginTop: 6, marginRight: 10, width: 30, borderRadius: 40 }}
+                      style={{ marginTop: 6,
+                        marginRight: 10,
+                        width: 30,
+                        borderRadius: 40 }}
                     />
                     <span>{ user.info.givenName } </span>
-                    <a><button type="button" onClick={this.logUserOut} className="btn logout-btn navbar-btn">Logout</button></a>
+                    <a><button type="button"
+                               onClick={this.logUserOut}
+                               className="btn logout-btn navbar-btn">Logout
+                               </button></a>
                   </ul>
                     : null}
               </ul>

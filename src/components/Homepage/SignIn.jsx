@@ -3,7 +3,7 @@ import GoogleLogin from 'react-google-login';
 import AlertContainer from 'react-alert';
 import PropTypes from 'prop-types';
 
-import action from '../Actions/actionsAuth';
+import action from '../../Actions/actionsAuth';
 
 /**
  * @export  SignIn
@@ -11,16 +11,11 @@ import action from '../Actions/actionsAuth';
  * @extends {React.Component}
  */
 class SignIn extends React.Component {
-  /**
-   * Creates an instance of SignIn.
-   * @param {object, function} props
-   * @memberof SignIn
-   */
   constructor(props) {
     super(props);
     this.googleResponse = this.googleResponse.bind(this);
     this.googleResponseFailure = this.googleResponseFailure.bind(this);
-
+    this.handleRef = this.handleRef.bind(this);
     this.showAlert = () => {
       this.msg.error('Sorry, there was an error.', {
         theme: 'light',
@@ -32,9 +27,9 @@ class SignIn extends React.Component {
 
   /**
    *  Parses the google authentiction request
-   *  @param {object}
+   *  @param {response} response
    *  @memberof SignIn
-   *  @returns {void}
+   *  @returns {true}
    */
   googleResponse(response) {
     action.getUser(response.profileObj);
@@ -51,6 +46,10 @@ class SignIn extends React.Component {
     this.showAlert();
   }
 
+  handleRef(alert) {
+    this.msg = alert;
+  }
+
   render() {
     return (
       <div>
@@ -61,7 +60,7 @@ class SignIn extends React.Component {
           onSuccess={this.googleResponse}
           onFailure={this.googleResponseFailure}
         ><i className="fa fa-google-plus" />
-          <AlertContainer ref={a => this.msg = a} />
+          <AlertContainer ref={this.handleRef} />
         </GoogleLogin>
       </div>
     );
@@ -72,4 +71,3 @@ export default SignIn;
 SignIn.propTypes = {
   getResponse: PropTypes.func.isRequired,
 };
-

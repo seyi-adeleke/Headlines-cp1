@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 
-import Body from '../../src/components/Body/MainBody';
+import Body from '../../src/components/Body/MainBody.jsx';
 
 describe('Body', () => {
   const wrapper = shallow(<Body />);
@@ -32,7 +32,7 @@ describe('Body', () => {
   });
 
   const newSort = wrapper.instance().newSort();
-  test('newSort should exist', () => {
+  test('newSort should be undefined on mount', () => {
     expect(newSort).toBe(undefined);
   });
 });

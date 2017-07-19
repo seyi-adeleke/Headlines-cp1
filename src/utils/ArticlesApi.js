@@ -6,15 +6,14 @@ export default {
    * @description Makes an api call
    * @param {string} source
    * @param {string} sort
-   * @return {object} response
    */
   get(source, sort) {
-    request.get(`https://newsapi.org/v1/articles?source=${source}&sortBy=${sort}&apiKey=${process.env.NEWS_API_KEY}`)
+    const apiUrl = 'https://newsapi.org/v1/articles?source=';
+    const key = process.env.NEWS_API_KEY;
+    request.get(`${apiUrl}${source}&sortBy=${sort}&apiKey=${key}`)
       .set('Accept', 'application/json')
       .end((err, response) => {
         return ActionServer.receiveArticle(response.body);
       });
   },
 };
-
-

@@ -3,10 +3,10 @@ import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 
 
-import HomePage from '../../src/components/HomePage';
+import HomePage from '../../src/components/HomePage.jsx';
 
-import SelectNewsSource from '../../src/components/Body/SelectNewsSource';
- 
+import SelectNewsSource from '../../src/components/Body/SelectNewsSource.jsx';
+
 jest.unmock('../../__mocks__/superagent.js');
 
 describe('SelectNewsSource state', () => {
@@ -16,15 +16,6 @@ describe('SelectNewsSource state', () => {
       <SelectNewsSource getSource={newState => this.newSource(newState)} />,
     );
     expect(rendered.toJSON()).toMatchSnapshot();
-  });
-
-
-});
-
-describe('homepage state', () => {
-  const wrapper = shallow(<HomePage />);
-  it('should have source state to be empty on load', () => {
-    expect(wrapper.state().info).toBe('');
   });
 });
 

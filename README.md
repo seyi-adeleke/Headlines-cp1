@@ -10,16 +10,13 @@ It has the following features:
 * Sorting based on either Top or latest.
 * Social Media sharing
 
-# Project Dependencies
-* babel-core - Used to compile es6 to es5
-* superagent - Used to make HTTP requests to external API's
-* express - Used as the web server for this application
-* react - A library for building frton ent applications.
-* react-router - Used to perform app routing
-* react-share - Provides social media share icons
-* webpack - Used to bundle the app's js and scss files for usage in the browser
-* Bootstrap - A mobile first css framework.
-* Font Awesome - Css icon library
+# Technologies Used
+* React - A library for building front end applications.
+* Flux - Architectural pattern for building dynamic applications with react.
+* Node - Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
+* babel - Used to compile es6 to es5
+* Express - Used as the web server for this application
+* Webpack - Used to bundle the app's js and scss files for usage in the browser
 
 # Installation
 Navigate to a desired directory on your terminal. Use either of these commands to clone this repository in that directory.

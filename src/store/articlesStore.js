@@ -57,12 +57,12 @@ AppDispatcher.register((payload) => {
   const action = payload.action;
   const newArticle = action.response;
   switch (action.actionType) {
-    case Constants.NEW_NEWS:
-      store.list = newArticle;
-      ArticleStore.emit(CHANGE_EVENT);
-      break;
-    default:
-      return true;
+  case Constants.NEW_NEWS:
+    store.list = newArticle;
+    ArticleStore.emit(CHANGE_EVENT);
+    break;
+  default:
+    return true;
   }
 });
 
