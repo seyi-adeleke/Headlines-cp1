@@ -65,8 +65,8 @@ AppDispatcher.register((payload) => {
   switch (action.actionType) {
   case Constants.AUTH:
     store.user = newUser;
-    AuthStore.emit(CHANGE_EVENT);
     localStorage.setItem('user', JSON.stringify(store.user));
+    AuthStore.emit(CHANGE_EVENT);
     break;
   case Constants.LOGOUT:
     localStorage.removeItem('user');

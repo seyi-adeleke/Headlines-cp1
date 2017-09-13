@@ -11,7 +11,7 @@ class Nav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: false,
+      user: JSON.parse(localStorage.getItem('user')) || null,
     };
     this.onChange = this.onChange.bind(this);
     this.logUserOut = this.logUserOut.bind(this);
@@ -32,7 +32,7 @@ class Nav extends React.Component {
    * @return {void}
    */
   onChange() {
-    this.setState({ user: true, info: store.getUser() });
+    this.setState({ user: JSON.parse(localStorage.getItem('user')), info: store.getUser() });
   }
 
   /**
@@ -44,7 +44,7 @@ class Nav extends React.Component {
   }
 
   render() {
-    const user = JSON.parse(localStorage.getItem('user'));
+    const user = this.state.user;
     return (
       <div>
         <nav className="navbar navbar-tv-tracker navbar-fixed-top">

@@ -1,11 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-//const env = require('node-env-file');
+const DashboardPlugin = require('webpack-dashboard/plugin');
+
+// const env = require('node-env-file');
 
 const webpack = require('webpack');
 
-//env(__dirname + '/.env');
+// env(__dirname + '/.env');
 
 const port = 3000;
 
@@ -53,6 +55,7 @@ module.exports = {
     port,
   },
   plugins: [
+    new DashboardPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
