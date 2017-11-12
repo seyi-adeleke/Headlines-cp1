@@ -7,7 +7,7 @@ import constants from '../../src/constants/constants';
 jest.dontMock('../../src/store/articlesStore.js');
 
 
-describe('store should have the correct methods', () => {
+describe('store', () => {
   it('should exist', () => {
     expects(store).toExist();
   });

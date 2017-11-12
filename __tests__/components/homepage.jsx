@@ -1,6 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+<<<<<<< HEAD
 import Homepage from '../../src/components/HomePage';
+=======
+import Homepage from '../../src/components/HomePage.jsx';
+>>>>>>> staging
 
 describe('Welcome', () => {
   const wrapper = shallow(<Homepage />);

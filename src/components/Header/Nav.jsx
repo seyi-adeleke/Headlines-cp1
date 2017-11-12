@@ -8,15 +8,18 @@ import action from '../../Actions/actionLogout';
  * @extends {React.Component}
  */
 class Nav extends React.Component {
+<<<<<<< HEAD
   /**
    * Creates an instance of Nav.
    * @param {function, object} props
    * @memberof Nav
    */
+=======
+>>>>>>> staging
   constructor(props) {
     super(props);
     this.state = {
-      user: false,
+      user: JSON.parse(localStorage.getItem('user')) || null,
     };
     this.onChange = this.onChange.bind(this);
     this.logUserOut = this.logUserOut.bind(this);
@@ -37,7 +40,7 @@ class Nav extends React.Component {
    * @return {void}
    */
   onChange() {
-    this.setState({ user: true, info: store.getUser() });
+    this.setState({ user: JSON.parse(localStorage.getItem('user')), info: store.getUser() });
   }
 
   /**
@@ -49,13 +52,15 @@ class Nav extends React.Component {
   }
 
   render() {
-    const user = JSON.parse(localStorage.getItem('user'));
+    const user = this.state.user;
     return (
       <div>
         <nav className="navbar navbar-tv-tracker navbar-fixed-top">
           <div className="container">
             <div className="navbar-header">
-              <a className="navbar-brand" href="/"><b><i style={{ color: 'black' }} className="fa fa-newspaper-o" /> HEADLINES</b></a>
+              <a className="navbar-brand" href="/">
+              <b><i style={{ color: 'black' }}
+                    className="fa fa-newspaper-o" /> HEADLINES</b></a>
             </div>
             <div className="collapse navbar-collapse" id="navbar">
               <ul className="nav navbar-nav navbar-right">
@@ -64,10 +69,23 @@ class Nav extends React.Component {
                     <img
                       alt="not available"
                       src={user.info.imageUrl}
+<<<<<<< HEAD
                       style={{ marginTop: 6, marginRight: 10, width: 30, borderRadius: 40 }}
                     />
                     <span>{ user.info.givenName } </span>
                     <a><button type="button" onClick={this.logUserOut} className="btn logout-btn navbar-btn">Logout</button></a>
+=======
+                      style={{ marginTop: 6,
+                        marginRight: 10,
+                        width: 30,
+                        borderRadius: 40 }}
+                    />
+                    <span>{ user.info.givenName } </span>
+                    <a><button type="button"
+                               onClick={this.logUserOut}
+                               className="btn logout-btn navbar-btn">Logout
+                               </button></a>
+>>>>>>> staging
                   </ul>
                     : null}
               </ul>

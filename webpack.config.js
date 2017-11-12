@@ -1,9 +1,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
+
+// const env = require('node-env-file');
 
 const webpack = require('webpack');
+
+// env(__dirname + '/.env');
 
 const port = 3000;
 
@@ -16,7 +19,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
+  devtool: process.env.NODE_ENV === 'production' ? undefined : 'cheap-module-eval-source-map',
   entry: './src/index.jsx',
   output: {
     path: outputPath,
@@ -51,13 +54,11 @@ module.exports = {
     port,
   },
   plugins: [
-    new Dotenv({
-      path: './.env',
-      safe: false,
-    }),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('production'),
+        NODE_ENV: JSON.stringify('production'),
+        GOOGLE_ID: JSON.stringify(process.env.GOOGLE_ID),
+        NEWS_API_KEY: JSON.stringify(process.env.NEWS_API_KEY)
       },
     }),
     new webpack.HotModuleReplacementPlugin(),

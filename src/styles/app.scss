@@ -11,6 +11,7 @@ body {
   margin-bottom: 60px;
   overflow-x: hidden;
 }
+<<<<<<< HEAD
 
 .btn-primary {
   background-color: dodgerblue;
@@ -27,6 +28,24 @@ body {
     text-transform: capitalize;   
 }
 
+=======
+
+.btn-primary {
+  background-color: dodgerblue;
+}
+.btn-primary:hover{
+    background-color:white;
+    color: black;
+}
+
+.col-md-4 {
+  text-align: center;
+}
+.capitalize {
+    text-transform: capitalize;   
+}
+
+>>>>>>> staging
 .flex-row {
 	display: flex;
 	flex-wrap: wrap;
@@ -64,7 +83,14 @@ html {
   position: relative;
   min-height: 100%;
 } 
+<<<<<<< HEAD
 
+=======
+.image-thumbnail{
+  width: 305px !important;
+  height: 305px !important;
+}
+>>>>>>> staging
 .logout-btn{
   border: 1px solid black;
   background-color: white;
@@ -106,11 +132,18 @@ html {
 
 }
 .thumbnail:hover{
+<<<<<<< HEAD
    -moz-box-shadow: 3px 3px 3px #999;
     -webkit-box-shadow: 3px 3px 3px #999;
     box-shadow: 3px 3px 3px #999;
     border: 2px solid dodgerblue;
 
+=======
+   -moz-box-shadow: 1px 1px 1px #999;
+    -webkit-box-shadow: 1px 1px 1px #999;
+    box-shadow: 1px 1px 1px #999;
+    border: 1px solid dodgerblue;
+>>>>>>> staging
 }
 
 .user-name:hover:first-of-type {
@@ -120,9 +153,84 @@ html {
 
 .welcome, .panel-body {
   background-color: #fefdff;
+<<<<<<< HEAD
 }
 
 .welcome {
   border: 2px solid whitesmoke;
   padding: 0 100px 100px 100px;
+=======
+}
+
+.welcome {
+  border: 2px solid whitesmoke;
+  padding: 0 100px 100px 100px;
+}
+
+.loader {
+  font-size: 10px;
+  margin: 50px auto;
+  text-indent: -9999em;
+  width: 11em;
+  height: 11em;
+  border-radius: 50%;
+  background: #1e6cff;
+  background: -moz-linear-gradient(left, #1e6cff 10%, rgba(30,108,255, 0) 42%);
+  background: -webkit-linear-gradient(left, #1e6cff 10%, rgba(30,108,255, 0) 42%);
+  background: -o-linear-gradient(left, #1e6cff 10%, rgba(30,108,255, 0) 42%);
+  background: -ms-linear-gradient(left, #1e6cff 10%, rgba(30,108,255, 0) 42%);
+  background: linear-gradient(to right, #1e6cff 10%, rgba(30,108,255, 0) 42%);
+  position: relative;
+  -webkit-animation: load3 1.4s infinite linear;
+  animation: load3 1.4s infinite linear;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.loader:before {
+  width: 50%;
+  height: 50%;
+  background: #1e6cff;
+  border-radius: 100% 0 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+}
+.loader:after {
+  background: #fcfaff;
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  content: '';
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+@-webkit-keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.welcome-box{
+  background-color: green;
+>>>>>>> staging
 }

@@ -4,7 +4,7 @@ import Layout from './components/Layout.jsx';
 import Body from './components/Body.jsx';
 import HomePage from './components/HomePage.jsx';
 import NotFound from './components/NotFound.jsx';
-import store from '../src/store/authStore.js';
+import store from '../src/store/authStore';
 
 /**
  * @export Root
@@ -12,30 +12,45 @@ import store from '../src/store/authStore.js';
  * @extends {React.Component}
  */
 class Root extends React.Component {
+<<<<<<< HEAD
    /**
+=======
+/**
+>>>>>>> staging
  * @param {any} nextState
  * @param {method} replace
  * @param {callback} next
  * @memberof Root
  */
   static checkUserState(nextState, replace, next) {
+<<<<<<< HEAD
     const user = (localStorage.getItem('user'));
     if (user === null) {
+=======
+    const key = localStorage.getItem('key');
+    if (key === null) {
+>>>>>>> staging
       replace('/');
     }
     next();
   }
+<<<<<<< HEAD
 
   /**
    * Creates an instance of Root.
    * @param {object, methods} props
    * @memberof Root
    */
+=======
+>>>>>>> staging
   constructor(props) {
     super(props);
     this.state = { info: null };
     this.onChange = this.onChange.bind(this);
+<<<<<<< HEAD
     this.noAuth = this.noAuth.bind(this);
+=======
+>>>>>>> staging
   }
 
   /**
@@ -55,6 +70,7 @@ class Root extends React.Component {
   onChange() {
     this.setState({ info: store.getUser() });
   }
+<<<<<<< HEAD
   
 
 
@@ -65,14 +81,24 @@ class Root extends React.Component {
     next();
   }
  
+=======
+>>>>>>> staging
 
   render() {
     return (
       <Router history={browserHistory}>
+<<<<<<< HEAD
         <Route path="/" component={Layout} onEnter={this.noAuth}>
           <Route path="headlines" component={Body} onEnter={Root.checkUserState} />
+=======
+        <Route path="/" component={Layout} >
+          <Route path="headlines"
+                 component={Body}
+                 onEnter={Root.checkUserState}
+          />
+>>>>>>> staging
           <Route path="*" component={NotFound} />
-          <IndexRoute component={HomePage} />
+          <IndexRoute component={HomePage} onEnter={this.noAuth}/>
         </Route>
       </Router>
     );

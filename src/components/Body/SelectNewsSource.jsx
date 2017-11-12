@@ -21,7 +21,8 @@ class SelectNewsSource extends React.Component {
    * @memberof SelectNewsSource
    */
   componentDidMount() {
-    this.serverRequest = request.get('https://newsapi.org/v1/sources?language=en')
+    const sources = 'https://newsapi.org/v1/sources?language=en';
+    this.serverRequest = request.get(sources)
     .end((error, response) => {
       this.setState({
         newsSources: response.body.sources,
@@ -34,9 +35,12 @@ class SelectNewsSource extends React.Component {
    * handles change events
    * @param {array} event
    * @memberof SelectNewsSource
+   * @return {true}
    */
   handleChange(event) {
     if (event) {
+      localStorage.setItem('key', event.id);
+
       this.setState({
         source: event,
       });
@@ -54,7 +58,6 @@ class SelectNewsSource extends React.Component {
       <div>
         <label htmlFor>Source</label>
         <div className="col-sm-12">
-
           <Select
             onChange={this.handleChange}
             labelKey="name"
