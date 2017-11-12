@@ -3,16 +3,9 @@ import ActionServer from '../Actions/actionServer';
 
 export default {
   /**
-<<<<<<< HEAD
-   * Makes an api call
-   * @param {string} source
-   * @param {string} sort
-   * @return {object}
-=======
    * @description Makes an api call
    * @param {string} source
    * @param {string} sort
->>>>>>> staging
    */
   get(source, sort) {
     const apiUrl = 'https://newsapi.org/v1/articles?source=';

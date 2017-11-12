@@ -13,15 +13,6 @@ const store = {
   list: null,
 };
 
-<<<<<<< HEAD
-class ArticleStoreClass extends EventEmitter {
-  addChangeListener(cb) {
-    this.on(CHANGE_EVENT, cb);
-  }
-  removeChangeListener(cb) {
-    this.removeListener(CHANGE_EVENT, cb);
-  }
-=======
 /**
  * @class ArticleStoreClass
  * @extends {EventEmitter}
@@ -50,7 +41,6 @@ class ArticleStoreClass extends EventEmitter {
    * @returns {object} store
    * @memberof ArticleStoreClass
    */
->>>>>>> staging
   getList() {
     return store;
   }

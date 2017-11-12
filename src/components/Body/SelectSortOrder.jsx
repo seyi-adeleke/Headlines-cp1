@@ -7,14 +7,6 @@ import PropTypes from 'prop-types';
  * @extends {React.Component}
  */
 class SelectSortOrder extends React.Component {
-<<<<<<< HEAD
-  /**
-   * Creates an instance of SelectSortOrder.
-   * @param {function, object} props
-   * @memberof SelectSortOrder
-   */
-=======
->>>>>>> staging
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
